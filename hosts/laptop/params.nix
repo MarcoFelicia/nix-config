@@ -8,6 +8,7 @@
     "dconf"
     "firefox"
     "gnome-terminal"
+    "gpg"
     "vscodium"
     "zsh"
 

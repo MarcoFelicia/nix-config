@@ -119,10 +119,10 @@
     // (flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = import inputs.nixpkgs {};
+        pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        devShells.qemu = mkShell { packages = with pkgs; [ qemu ]; };
+        devShells.qemu = pkgs.mkShell { packages = with pkgs; [ qemu ]; };
       }
     ));
 }
