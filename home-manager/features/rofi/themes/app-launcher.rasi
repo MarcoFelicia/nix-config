@@ -1,0 +1,83 @@
+@import "base"
+
+window {
+  width: 320px;
+  padding: 12px;
+  background-color: @panel-bg;
+  border-radius: @rounding;
+}
+
+mainbox {
+  spacing: 12px;
+  children: [inputbar, listview];
+}
+
+inputbar {
+  spacing: 8px;
+  children: [search-box, entry];
+}
+
+search-box {
+  expand: false;
+  padding: 4px 8px;
+  background-color: @selected;
+  border-radius: 4px;
+  orientation: horizontal;
+  spacing: 8px;
+  children: [textbox-icon, textbox-app];
+}
+
+textbox-icon {
+  expand: false;
+  content: "";
+  text-color: @selected-color;
+  font: "Symbols Nerd Font Mono 10";
+  vertical-align: 0.5;
+  text-transform: none;
+}
+
+textbox-app {
+  expand: false;
+  content: "Apps";
+  text-color: @selected-color;
+  vertical-align: 0.5;
+}
+
+entry {
+  cursor-width: 2;
+  vertical-align: 0.5;
+}
+
+listview {
+  scrollbar: false;
+  lines: 6;
+  spacing: 2px;
+}
+
+element {
+  padding: 6px 8px;
+  border-radius: 8px;
+  spacing: 8px;
+  children: [element-icon-box, element-text];
+}
+
+element selected {
+  background-color: @hover;
+}
+
+element-text {
+  highlight: @selected;
+  vertical-align: 0.5;
+}
+
+element-icon-box {
+  expand: false;
+  padding: 2px;
+  background-color: @icon-bg;
+  border-radius: 8px;
+  children: [element-icon];
+}
+
+element-icon {
+  size: 24px;
+}

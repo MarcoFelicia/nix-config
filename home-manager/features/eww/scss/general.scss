@@ -1,0 +1,70 @@
+$box-shadow: 0 1px 2px 0 $shadow;
+
+* {
+  all: unset;
+  color: $color;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  transition-property: color, background-color, border-color, text-decoration-color, opacity, box-shadow;
+  transition-duration: .3s;
+}
+
+.bar {
+  padding: 4px 12px;
+  background-color: $bar-bg;
+}
+
+.popup-container {
+  padding: $window-padding;
+}
+
+.panel {
+  background-color: $panel-bg;
+  border-radius: $window-rounding;
+  box-shadow: $box-shadow;
+}
+
+.popup {
+  padding: 8px 12px;
+  background-color: $popup-bg;
+  border-radius: 4px;
+  box-shadow: $box-shadow;
+
+  progressbar {
+    $height: 4px;
+
+    &,
+    & * {
+      min-height: $height;
+      border-radius: $height;
+    }
+
+    trough {
+      background-color: $progress-trough;
+      min-width: 84px;
+    }
+  }
+}
+
+.icon {
+  font-family: 'Symbols Nerd Font Mono';
+  font-weight: normal;
+  font-size: 12px;
+
+  &.small {
+    font-size: 10px;
+  }
+
+  &.bold {
+    font-weight: bold;
+  }
+}
+
+.widget-button {
+  border-radius: 4px;
+
+  &:hover {
+    background-color: $hover;
+  }
+}

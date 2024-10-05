@@ -1,0 +1,48 @@
+(defwidget date []
+  (box
+    :class "date"
+    :halign "start"
+    :spacing 4
+    :space-evenly false
+    (to_uppercase
+      :text {month}
+    )
+    (label
+      :text {day}
+    )
+    (label
+      :text {weekday}
+    )
+  )
+)
+
+(defwidget clock []
+  (box
+    :class "clock"
+    :spacing 2
+    :space-evenly false
+    (label
+      :text {hr}
+    )
+    (label
+      :class "colon"
+      :text ":"
+    )
+    (label
+      :text {min}
+    )
+    (to_uppercase
+      :text {period}
+    )
+  )
+)
+
+(defwidget center []
+  (box
+    :halign "center"
+    :spacing 8
+    :space-evenly false
+    (date)
+    (clock)
+  )
+)

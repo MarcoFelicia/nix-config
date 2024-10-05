@@ -1,0 +1,72 @@
+@import './scss/general.scss';
+
+.logo{
+  font-size: 16px;
+}
+
+.workspace {
+  border: 2px solid currentColor;
+  border-radius: 50%;
+
+  &:hover,
+  &.current {
+    background-color: currentColor;
+  }
+
+  &.current {
+    color: $selected;
+  }
+
+  &.empty {
+    color: $disabled-color;
+    opacity: .7;
+  }
+}
+
+.clock {
+  .colon {
+    margin-top: -1px;
+  }
+}
+
+.moon.icon{
+  font-size: 10px;
+}
+
+.seperator {
+  background-color: $border;
+  border-radius: 2px;
+}
+
+.menu {
+  padding: 6px 8px;
+
+  .button:hover .item {
+    background-color: $hover;
+  }
+
+  .item {
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+}
+
+.volume-progress {
+  label.icon {
+    font-size: 14px;
+  }
+
+  progress {
+    background-color: $progress-highlight;
+  }
+
+  &.mute progress {
+    background-color: rgba($color: $progress-highlight, $alpha: 0.5);
+  }
+}
+
+.brightness-progress {
+  progress {
+    background-color: $yellow;
+  }
+}

@@ -1,0 +1,49 @@
+(defwidget to_uppercase [text]
+  (label
+    :markup "<span text_transform=\"uppercase\">${text}</span>"
+  )
+)
+
+(defwidget to_capitalize [text]
+  (label
+    :markup "<span text_transform=\"capitalize\">${text}</span>"
+  )
+)
+
+(defwidget widget_button [?cursor ?onclick ?onhover ?onscroll]
+  (eventbox
+    :class "widget-button"
+    :valign "center"
+    :width {widget_size}
+    :height {widget_size}
+    :cursor {cursor?:"pointer"}
+    :onclick {onclick}
+    :onhover {onhover}
+    :onscroll {onscroll}
+    (children)
+  )
+)
+
+(defwidget seperator []
+  (box
+    :class "seperator"
+    :valign "center"
+    :height 12
+    :width 2
+  )
+)
+
+(defwindow fullscreen_overlay
+  :monitor 0
+  :geometry (geometry
+    :width "100%"
+    :height "100%"
+    :anchor "bottom center"
+  )
+  :stacking "overlay"
+  :namespace "eww_fullscreen"
+  (eventbox
+    :onclick {close_fullscreen_overlay}
+    :onscroll {close_fullscreen_overlay}
+  )
+)

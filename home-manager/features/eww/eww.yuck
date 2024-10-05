@@ -1,0 +1,23 @@
+(include "./yucks/left.yuck")
+(include "./yucks/center.yuck")
+(include "./yucks/right.yuck")
+(include "./yucks/popup.yuck")
+(include "./yucks/utils.yuck")
+(include "./yucks/variables.yuck")
+
+(defwindow mainbar
+  :monitor 0
+  :geometry (geometry
+    :width "100%"
+    :anchor "top center"
+  )
+  :stacking "bg"
+  :exclusive true
+  :namespace "eww"
+  (box
+    :class "bar"
+    (left)
+    (center)
+    (right)
+  )
+)

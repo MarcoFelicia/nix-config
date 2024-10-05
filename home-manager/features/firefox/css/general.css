@@ -1,0 +1,51 @@
+/* top left corner widget */
+#firefox-view-button,
+
+/* alt menu */
+#toolbar-menubar,
+
+/* new tab button */
+#tabbrowser-arrowscrollbox-periphery,
+#new-tab-button,
+
+/* tab bar arrow button */
+#scrollbutton-up,
+#scrollbutton-down,
+
+/* tab bar overflow spacer */
+arrowscrollbox spacer,
+
+/* close button */
+.titlebar-close,
+
+/* widget at the left of close button */
+#alltabs-button,
+
+#back-button,
+#forward-button,
+#stop-reload-button,
+#nav-bar-overflow-button,
+
+/* left and right spacing of the urlbar */
+toolbarspring[id^="customizableui-special-spring"],
+
+/* widgets in urlbar */
+#remote-control-box,
+#urlbar-search-button,
+#pageActionButton {
+    display: none !important;
+}
+
+* {
+    transition-property: color, background-color, border-color, outline, text-decoration-color, fill, stroke, opacity, box-shadow;
+    transition-duration: 0.3s;
+}
+
+#titlebar,
+#nav-bar {
+    padding-inline: var(--toolbox-padding-inline) !important;
+    height: var(--titlebar-height);
+    background: var(--titlebar-background) !important;
+    will-change: unset !important;
+    transition: none !important;
+}

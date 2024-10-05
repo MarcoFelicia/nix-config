@@ -1,0 +1,31 @@
+#toolbar-context-menu #toggle_toolbar-menubar,
+#toolbar-context-menu #toggle_PersonalToolbar,
+#toolbar-context-menu #viewToolbarsMenuSeparator,
+
+#appMenu-popup #appMenu-new-private-window-button2 {
+  display: none !important;
+}
+
+findbar{
+  font-weight: var(--base-font-weight);
+}
+
+.findbar-container{
+  height: auto !important;
+  align-items: center;
+}
+
+.findbar-textbox{
+  padding: 3px 4px !important;
+  outline: var(--focus-outline) !important;
+  outline-offset: var(--focus-outline-inset);
+  outline-color: transparent !important;
+  transition: .3s;
+  &:focus{
+    outline-color: var(--toolbar-field-focus-border-color) !important;
+  }
+}
+
+findbar .accesskey{
+  text-decoration: none !important;
+}

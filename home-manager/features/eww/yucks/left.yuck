@@ -1,0 +1,50 @@
+(defwidget workspaces []
+  (box
+    :space-evenly false
+    (box
+      :class "widget"
+      :spacing 8
+      :space-evenly false
+      (for workspace in workspaces
+        (eventbox
+          :class "workspace ${workspace.id == current_workspace ? "current" : workspace.windows > 0 ? "occupied": "empty"}"
+          :valign "center"
+          :width {workspace_size}
+          :height {workspace_size}
+          :onclick "hyprctl dispatch workspace ${workspace.id}"
+          :cursor {workspace.id == current_workspace ? "default" : "pointer"}
+        )
+      )
+      (label
+        :text "${workspaces}${current_workspace}"
+        :visible false
+      )
+    )
+  )
+)
+
+(defwidget window []
+  (box
+    :spacing {widget_group_space}
+    :space-evenly false
+    :visible {current_window != "" && current_window != "null"}
+    (seperator)
+    (to_capitalize
+      :text {current_window}
+    )
+  )
+)
+
+(defwidget left []
+  (box
+    :spacing {widget_group_space}
+    :space-evenly false
+    (label
+      :class "icon logo"
+      :text "󱄅"
+    )
+    (seperator)
+    (workspaces)
+    (window)
+  )
+)

@@ -1,0 +1,77 @@
+(defvar widget_group_space 12)
+(defvar widget_in_group_space 4)
+(defvar widget_size 18)
+
+(defvar current_popup "")
+(defvar popup_increment 0)
+(defvar timeout 2)
+(defvar popup_pos_y 32)
+(defvar popup_widget_space 8)
+
+(defvar volume 0)
+(defvar muted 0)
+(deflisten brightness
+  "get-brightness"  
+)
+
+(defvar close_fullscreen_overlay "")
+
+(defvar workspace_size 10)
+(deflisten workspaces
+  :initial "[]"
+  "get-workspaces"
+)
+(deflisten current_workspace
+  :initial "1"
+  "get-current-workspace"
+)
+
+(deflisten current_window
+  :initial "..."
+  "get-window"
+)
+
+(defpoll month
+  :interval "1s"
+  "date +%b"
+)
+(defpoll day
+  :interval "1s"
+  "date +%d"
+)
+(defpoll weekday
+  :interval "1s"
+  "date +%a"
+)
+
+(defpoll hr
+  :interval "1s"
+  "date +%I"
+)
+(defpoll min
+  :interval "1s"
+  "date +%M"
+)
+(defpoll period
+  :interval "1s"
+  "date +%p"
+)
+
+(defpoll player_status
+  :interval "200ms"
+  "get-player-status"
+)
+
+(defvar night_mode 0)
+
+(defpoll wifi_name
+  :initial ""
+  :interval "1s"
+  "get-wifi-name"
+)
+(defpoll wifi_signal
+  :initial 0
+  :interval "1s"
+  "get-wifi-signal"
+)
+(defvar wifi_menu_icons '["󰤟", "󰤢", "󰤥", "󰤨"]')

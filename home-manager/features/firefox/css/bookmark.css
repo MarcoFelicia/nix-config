@@ -1,0 +1,8 @@
+/* #PersonalToolbar {
+    transition: none;
+
+    &[collapsed="true"] {
+        max-height: unset;
+        visibility: collapse;
+    }
+} */

@@ -1,0 +1,107 @@
+#nav-bar {
+    position: fixed !important;
+    right: 0;
+    height: var(--titlebar-height);
+    background-color: transparent !important;
+    border-top: none !important;
+    align-items: center;
+    justify-content: end;
+    z-index: 1;
+}
+
+#nav-bar-customization-target {
+    margin-right: var(--toolbar-gap);
+    align-items: center;
+    gap: var(--toolbar-gap);
+
+    &>* {
+        margin: 0 !important;
+    }
+}
+
+#unified-extensions-button,
+#PanelUI-menu-button {
+    padding: 0 !important;
+}
+
+#urlbar-container {
+    --urlbar-container-height: var(--titlebar-height) !important;
+    --opacity-duration: 0.2s;
+    --visible-transition: opacity var(--opacity-duration);
+
+    position: fixed !important;
+    left: 50%;
+    padding-block: 0 !important;
+    min-width: 600px;
+    width: 32vw !important;
+    translate: -50%;
+    z-index: 1;
+
+    top: calc(var(--titlebar-height) * -1);
+    opacity: 0;
+    transition:
+        top 0s var(--opacity-duration),
+        var(--visible-transition);
+
+    &:has(#urlbar[focused]) {
+        top: var(--urlbar-drop);
+        opacity: 1;
+        transition:
+            var(--visible-transition);
+    }
+}
+
+#nav-bar:has(+ #PersonalToolbar[collapsed="false"]) #urlbar-container {
+    top: calc(var(--titlebar-height) * -1);
+    opacity: 0;
+    transition:
+        top 0s var(--opacity-duration),
+        var(--visible-transition);
+}
+
+#urlbar {
+    --urlbar-height: auto !important;
+
+    top: 0;
+    min-width: unset !important;
+    min-height: unset !important;
+    font-size: var(--base-font-size) !important;
+    font-weight: var(--base-font-weight);
+    display: flex !important;
+    flex-direction: column;
+
+    &[breakout][breakout-extend] {
+        left: auto !important;
+        width: 100% !important;
+    }
+}
+
+#urlbar-background {
+    border-radius: 8px !important;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    outline: none !important;
+    animation-duration: 0s !important;
+}
+
+.urlbar-input-container {
+    padding-block: 8px !important;
+    padding-inline: calc(var(--urlbar-margin-inline) + var(--urlbar-container-padding)) !important;
+}
+
+#urlbar-input {
+    border-radius: 0 !important;
+}
+
+#urlbar-search-mode-indicator {
+    font-size: .8em;
+    padding-bottom: 1px;
+}
+
+.urlbar-go-button {
+    display: none;
+}
+
+.search-panel-header {
+    font-weight: var(--base-font-weight) !important;
+    font-size: 0.8em;
+}

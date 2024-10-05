@@ -1,0 +1,22 @@
+@-moz-document url-prefix(about:home), url-prefix(about:newtab) {
+    #root {
+
+        & button,
+        &input {
+            transition: .3s;
+        }
+    }
+
+    .outer-wrapper.only-search {
+        display: flex !important;
+        padding: 0 !important;
+    }
+
+    .search-wrapper {
+        padding: 0 !important;
+    }
+
+    .search-inner-wrapper {
+        display: none !important;
+    }
+}

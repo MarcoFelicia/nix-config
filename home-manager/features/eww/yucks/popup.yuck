@@ -1,0 +1,47 @@
+(defwindow brightness_popup
+  :monitor 0
+  :geometry (geometry)
+  :stacking "overlay"
+  :namespace "eww"
+  (popup_progress
+    :icon "󰌵"
+    :data {brightness}
+    :bar "brightness-progress"
+  )
+)
+
+(defwindow volume_popup
+  :monitor 0
+  :geometry (geometry)
+  :stacking "overlay"
+  :namespace "eww"
+  (popup_progress
+    :icon {muted == 1 ? "" : ""}
+    :data {volume}
+    :bar "volume-progress ${muted == 1 ? "mute" : ""}"
+  )
+)
+
+(defwidget popup_progress [icon data bar]
+  (box
+    :class "popup-container"
+    (box
+      :class "popup"
+      :spacing {popup_widget_space}
+      :space-evenly false
+      (label
+        :class "icon"
+        :text {icon}
+      )
+      (label
+        :width 22
+        :text {data}
+      )
+      (progress
+        :class {bar}
+        :valign "center"
+        :value {data}
+      )
+    )
+  )
+)

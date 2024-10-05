@@ -1,0 +1,22 @@
+@import 'general.css';
+@import 'titlebar.css';
+@import 'navbar.css';
+@import 'bookmark.css';
+@import 'widgets.css';
+
+:root {
+    --base-font-size: 18px;
+    --base-font-weight: 500;
+
+    --titlebar-height: 44px;
+    --urlbar-drop: calc(var(--titlebar-height) + 16px);
+    --toolbox-padding-inline: 4px;
+    --toolbar-items: 3;
+
+    --inactive-titlebar-opacity: 1;
+    --custom-tab-min-width: 84px;
+    --tab-max-width: 224px;
+    --tab-inactive-width: 180px;
+
+    --toolbar-gap: 4px;
+}

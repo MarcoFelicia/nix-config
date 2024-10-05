@@ -1,0 +1,68 @@
+(defwidget player []
+  (box
+    :spacing {widget_group_space}
+    :space-evenly false
+    :visible {player_status != ""}
+    (widget_button
+      (label
+        :class "icon"
+        :text ""
+        :yalign 0.6
+      )
+    )
+    (seperator)
+  )
+)
+
+(defwidget night_mode []
+  (widget_button
+    :onclick "toggle-night-mode"
+    (label
+      :class "icon ${night_mode == 0 ? "" : "small"}"
+      :text {night_mode == 0 ? "󰃠" : "󰤄"}
+      :yalign 0.6
+    )
+  )
+)
+
+(defwidget wifi []
+  (widget_button
+    (label
+      :class "icon"
+      :text {wifi_name == "" ? "󰤮" : wifi_menu_icons[wifi_signal]}
+      :yalign 0.6
+    )
+  )
+)
+
+(defwidget control []
+  (box
+    :spacing {widget_in_group_space}
+    :space-evenly false
+    (night_mode)
+    (wifi)
+  )
+)
+
+(defwidget power []
+  (widget_button
+    :onclick ""
+    (label
+      :class "icon bold small"
+      :text ""
+      :yalign 0.65
+    )
+  )
+)
+
+(defwidget right []
+  (box
+    :halign "end"
+    :spacing {widget_group_space}
+    :space-evenly false
+    (player)
+    (control)
+    (seperator)
+    (power)
+  )
+)
