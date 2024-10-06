@@ -8,6 +8,11 @@ with lib;
 {
   programs.zsh = {
     enable = true;
+    history = {
+      save = 1000;
+      size = 1000;
+      extended = false;
+    };
     shellAliases = import ./aliases.nix;
     initExtra = import ./config.nix + import ./keybinds.nix;
 

@@ -1,4 +1,6 @@
 {
+  reload = "source ~/.zshrc";
+
   to-nixos = "cd $NIX_CONFIG_HOME";
   nix-fmt = "$(to-nixos && nix fmt --quiet)";
   nix-clean = "sudo nix-collect-garbage -d && home-manager expire-generations $(date +%X)";
