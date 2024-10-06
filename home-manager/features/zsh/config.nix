@@ -34,4 +34,16 @@
 
   typeset -a precmd_functions
   precmd_functions+=(delete_failed_command)
+
+  cls() {
+    clear
+    zle clear-screen
+  }
+  zle -N cls
+
+  alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+  alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+  alias -g man='batman'
+  compdef batman='man'
 ''

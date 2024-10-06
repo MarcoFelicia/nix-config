@@ -23,9 +23,9 @@ with lib;
         file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
       }
       {
-        name = "zsh-fast-syntax-highlighting";
-        src = pkgs.zsh-fast-syntax-highlighting;
-        file = "share/zsh/site-functions/fast-syntax-highlighting.plugin.zsh";
+        name = "zsh-syntax-highlighting";
+        src = pkgs.zsh-syntax-highlighting;
+        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
       }
       {
         name = "zsh-vi-mode";
