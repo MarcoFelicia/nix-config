@@ -122,7 +122,12 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
-        devShells.qemu = pkgs.mkShell { packages = with pkgs; [ qemu ]; };
+        devShells.qemu = pkgs.mkShell {
+          packages = with pkgs; [ qemu ];
+          shellHook = ''
+            cd ~/Documents
+          '';
+        };
       }
     ));
 }

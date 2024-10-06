@@ -5,6 +5,7 @@
   inputs,
   ...
 }:
+with lib;
 {
   programs.firefox = {
     enable = true;
@@ -19,7 +20,7 @@
       settings = import ./settings.nix config.style;
     };
   };
-  home.file = {
+  home.file = mkIf config.custom.theme.firefox.enable {
     ".mozilla/firefox/default/chrome".source = ./css;
   };
 }

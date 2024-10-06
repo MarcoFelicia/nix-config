@@ -108,6 +108,7 @@ in
     palette = mkSetOption palette;
 
     bat.enable = mkEnableOption "";
+    firefox.enable = mkEnableOption "";
   };
   config.custom.theme = {
     inherit style palette;

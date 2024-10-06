@@ -7,4 +7,6 @@
   ];
 
   custom.defaultShellCommand = "zsh";
+  custom.theme.bat.enable = true;
+  custom.theme.firefox.enable = true;
 }
