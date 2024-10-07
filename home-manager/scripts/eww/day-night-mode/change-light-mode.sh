@@ -1,4 +1,4 @@
-FETCH=$(curl 'https://api.sunrisesunset.io/json?lat=52&lng=-2&time_format=24')
+FETCH=$(curl -s 'https://api.sunrisesunset.io/json?lat=52&lng=-2&time_format=24')
 
 SUNRISE=$(echo $FETCH | jq '.results.sunrise' | awk '{print $1}' | sed -e "s/[:\"]//g")
 SUNSET=$(echo $FETCH | jq '.results.sunset' | awk '{print $1}' | sed -e "s/[:\"]//g")
@@ -10,3 +10,5 @@ if [ $TIME -gt $SUNRISE -a $TIME -lt $SUNSET ]; then
 else
   night-mode
 fi
+
+sleep $DAY_NIGHT_UPDATE_INTERVAL && $0

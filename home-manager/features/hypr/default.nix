@@ -5,6 +5,8 @@
   inputs,
   ...
 }:
+with builtins;
+with lib;
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -22,18 +24,13 @@
       // import ./rules.nix lib style
       // {
         monitor = "HDMI-A-1, ${toString width}x${toString height}@60, 0x0, 1";
-        exec-once = [
-          "fcitx5 -d"
-
-          "wl-gammarelay-rs run"
-
-          "eww daemon; eww open mainbar"
-          "update-volume; update-mute"
-
-          "hyprpaper; hypridle"
-
-          "hyprctl dispatch movecursor ${toString (width / 2)} ${toString (height / 2)}"
-        ];
+        exec-once =
+          [
+            "hyprpaper; hypridle"
+            "hyprctl dispatch movecursor ${toString (width / 2)} ${toString (height / 2)}"
+          ]
+          ++ (optional (elem pkgs.wl-gammarelay-rs config.home.packages) "wl-gammarelay-rs run")
+          ++ (optional (elem pkgs.eww config.home.packages) "eww daemon; eww open mainbar; update-volume; update-mute; change-light-mode");
       };
     extraConfig = import ./config.nix;
   };

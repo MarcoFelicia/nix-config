@@ -16,6 +16,7 @@
     "NIGHT_BRIGHTNESS, 0.8"
     "DAY_TEMPERATURE, 6500"
     "NIGHT_TEMPERATURE, 5500"
+    "DAY_NIGHT_UPDATE_INTERVAL, 3600"
   ];
   "$mod" = "SUPER";
   "$terminal" = "kitty";
