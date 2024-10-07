@@ -98,24 +98,21 @@ let
       }
       # bookmark
       {
+        on = "b";
+        run = "plugin yamb --args=jump_by_key";
+        desc = "Jump bookmark by key";
+      }
+      {
         on = [
-          "b"
-          "a"
+          "B"
+          "s"
         ];
         run = "plugin yamb --args=save";
         desc = "Add bookmark";
       }
       {
         on = [
-          "b"
-          "<Right>"
-        ];
-        run = "plugin yamb --args=jump_by_key";
-        desc = "Jump bookmark by key";
-      }
-      {
-        on = [
-          "b"
+          "B"
           "<Delete>"
         ];
         run = "plugin yamb --args=delete_by_key";
@@ -123,15 +120,15 @@ let
       }
       {
         on = [
-          "b"
-          "<C-Delete>"
+          "B"
+          "<S-Delete>"
         ];
         run = "plugin yamb --args=delete_all";
         desc = "Delete all bookmarks";
       }
       {
         on = [
-          "b"
+          "B"
           "<F2>"
         ];
         run = "plugin yamb --args=rename_by_key";
