@@ -2,6 +2,7 @@
   username = "desktop";
   system = "x86_64-linux";
   stable = false;
+  allowUnfree = false;
 
   features = [
     "hypr"

@@ -15,7 +15,7 @@
   }
 
   setopt PROMPT_SUBST
-  PROMPT=' %F{blue}[''${(C)ZVM_MODE}]%f [%n@%M] %F{cyan}%~%f'$'\n''' %(?.%F{green}❯%f.%F{red}✖%f) '
+  PROMPT=$'\n''' %F{blue}[''${(C)ZVM_MODE}]%f [%n@%M] %F{cyan}%~%f'$'\n''' %(?.%F{green}❯%f.%F{red}✖%f) '
 
   function delete_failed_command() {
     local CODE=$?
@@ -23,8 +23,10 @@
       fc -W
 
       local TEMP_FILE=/tmp/zsh_hist
-
-      cat $HISTFILE | head -n -1 > $TEMP_FILE
+      local HIST=$(cat $HISTFILE)
+      
+      print -z "$(echo $HIST | tail -n 1)"
+      echo $HIST | head -n -1 > $TEMP_FILE
       cat $TEMP_FILE > $HISTFILE
 
       rm $TEMP_FILE

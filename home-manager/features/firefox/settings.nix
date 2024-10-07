@@ -1,4 +1,6 @@
-style: with style; {
+lib: config:
+with lib;
+{
   # telematry
   "app.shield.optoutstudies.enabled" = false;
   "browser.discovery.enabled" = false;
@@ -99,14 +101,6 @@ style: with style; {
   # autoload extensions
   "extensions.autoDisableScopes" = 0;
 
-  # userChrome
-  "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-
-  # browser devtool
-  "devtools.toolbox.host" = "window";
-  "devtools.chrome.enabled" = true;
-  "devtools.debugger.remote-enabled" = true;
-
   # bookmark toolbar
   "browser.toolbars.bookmarks.visibility" = "never";
 
@@ -118,3 +112,12 @@ style: with style; {
   "browser.theme.toolbar-theme" = 0;
   "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 }
+// (optionalAttrs config.custom.theme.firefox.enable {
+  # userChrome
+  "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+  # browser devtool
+  "devtools.toolbox.host" = "window";
+  "devtools.chrome.enabled" = true;
+  "devtools.debugger.remote-enabled" = true;
+})

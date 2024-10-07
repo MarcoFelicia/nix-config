@@ -17,7 +17,7 @@ with lib;
         istilldontcareaboutcookies
       ];
       search = import ./search.nix;
-      settings = import ./settings.nix config.style;
+      settings = import ./settings.nix lib config;
     };
   };
   home.file = mkIf config.custom.theme.firefox.enable {
