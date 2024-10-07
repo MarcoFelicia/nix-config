@@ -26,7 +26,6 @@
       ...
     }@inputs:
     let
-      inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
         "aarch64-linux"
         "i686-linux"
@@ -40,21 +39,21 @@
     with customLib;
     {
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
-
-      nixosModules = import ./nixos-modules;
-      homeManagerModules = import ./home-manager;
     }
     // (
       let
+        nixosModules = import ./nixos-modules;
+        homeManagerModules = import ./home-manager;
+        hostsDir = ./hosts;
+
         mkHost =
           args:
           with args;
           (if stable then nixpkgs else nixpkgs-unstable).lib.nixosSystem {
-            pkgs = (if stable then getPkgs else getUnstablePkgs) system;
+            pkgs = getPkgs system stable;
             specialArgs = {
               inherit
                 inputs
-                outputs
                 customLib
                 username
                 features
@@ -62,31 +61,30 @@
             };
             modules = [
               configPath
-              outputs.nixosModules
+              nixosModules
             ];
           };
         mkHomeManager =
           args:
           with args;
           (if stable then home-manager else home-manager-unstable).lib.homeManagerConfiguration {
-            pkgs = (if stable then getPkgs else getUnstablePkgs) system;
+            pkgs = getPkgs system stable;
             extraSpecialArgs = {
               inherit
                 inputs
-                outputs
                 customLib
                 hostName
                 username
                 features
                 ;
-              stable-pkgs = getPkgs system;
+              stable-pkgs = getPkgs system true;
             };
             modules = [
               configPath
-              outputs.homeManagerModules
+              homeManagerModules
             ];
           };
-        mkConfiguration =
+        genConfiguration =
           path: type:
           assert builtins.match "home|configuration" type != null;
           builtins.listToAttrs (
@@ -108,12 +106,10 @@
               }
             ) (customLib.dirsIn path)
           );
-
-        hostsDir = ./hosts;
       in
       {
-        nixosConfigurations = mkConfiguration hostsDir "configuration";
-        homeConfigurations = mkConfiguration hostsDir "home";
+        nixosConfigurations = genConfiguration hostsDir "configuration";
+        homeConfigurations = genConfiguration hostsDir "home";
       }
     )
     // (flake-utils.lib.eachDefaultSystem (

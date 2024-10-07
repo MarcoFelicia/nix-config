@@ -2,8 +2,9 @@
 with inputs.nixpkgs.lib;
 with builtins;
 rec {
-  getPkgs = system: inputs.nixpkgs.legacyPackages.${system};
-  getUnstablePkgs = system: import inputs.nixpkgs-unstable { inherit system; };
+  getPkgs =
+    system: stable:
+    import inputs."${if stable then "nixpkgs" else "nixpkgs-unstable"}" { inherit system ; };
 
   filesIn = path: (map (name: path + "/${name}") (attrNames (readDir path)));
   dirsIn =

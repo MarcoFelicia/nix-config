@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
-  home.packages = with pkgs; [ gnome.file-roller ];
+  nixpkgs.config.allowUnfree = true;
+  home.packages = with pkgs; [
+    gnome.file-roller
+    microsoft-edge
+  ];
 
   custom.defaultShellCommand = "zsh";
 }
