@@ -1,13 +1,20 @@
 {
   lib,
-  pkgs,
+  stable-pkgs,
   config,
   ...
 }:
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs; [ vscode-extensions.jnoortheen.nix-ide ];
+    package = stable-pkgs.vscodium;
+    userSettings = {
+      "editor.tabSize" = 2;
+      "explorer.confirmDragAndDrop" = false;
+      "explorer.confirmDelete" = false;
+      "terminal.integrated.defaultProfile.linux" = config.custom.defaultShellCommand;
+      "git.confirmSync" = false;
+    };
+    extensions = with stable-pkgs; [ vscode-extensions.jnoortheen.nix-ide ];
   };
 }
