@@ -4,7 +4,7 @@ with builtins;
 rec {
   getPkgs =
     system: stable:
-    import inputs."${if stable then "nixpkgs" else "nixpkgs-unstable"}" { inherit system ; };
+    import inputs."${if stable then "nixpkgs" else "nixpkgs-unstable"}" { inherit system; };
 
   filesIn = path: (map (name: path + "/${name}") (attrNames (readDir path)));
   dirsIn =
@@ -14,16 +14,16 @@ rec {
     ));
   subDirName = path: last (splitString "/" (toString path));
 
-  recursiveReadDir =
+  recursiveFilesIn =
     path:
-    map (
-      subPath:
-      if hasSuffix "::directory" subPath then
-        recursiveReadDir (path + "/${removeSuffix "::directory" subPath}")
-      else
-        path + "/${removeSuffix "::regular" subPath}"
-    ) (attrValues (mapAttrs (name: value: "${name}::${value}") (readDir path)));
-  recursiveFilesIn = path: flatten (recursiveReadDir path);
+    flatten (
+      attrValues (
+        mapAttrs (
+          name: value:
+          if value == "directory" then recursiveFilesIn (path + "/${name}") else "${path}/${name}"
+        ) (readDir path)
+      )
+    );
 
   mkOptionsForFiles = path: mapAttrs (_: _: { enable = mkEnableOption ""; }) (readDir path);
   enableOptions =
