@@ -20,4 +20,6 @@ with customLib;
       };
     };
   };
+
+  boot.loader.timeout = 0;
 }
