@@ -12,7 +12,8 @@ let
         mkOption { type = types.${typeOf value}; }
     ) set;
 
-  palette = {
+  theme = rec {
+    paletteName = "Catppuccin Frappe";
     flamingo = "eebebe";
     pink = "f4b8e4";
     mauve = "ca9ee6";
@@ -38,9 +39,6 @@ let
     base = "303446";
     mantle = "292c3c";
     crust = "232634";
-  };
-  style = with palette; rec {
-    paletteName = "Catppuccin Frappe";
 
     primary = blue;
     background = base;
@@ -48,7 +46,6 @@ let
     border = overlay0;
     shadow = mantle;
 
-    inherit text;
     secondary_text = subtext1;
     disabled_text = subtext0;
     placeholder_text = subtext0;
@@ -68,6 +65,9 @@ let
     panel = background;
     popup = status_bar;
     app_launcher = secondary_panel;
+
+    progress_trough = surface1;
+    progress_highlight = primary;
 
     keyword = mauve;
     strings = green;
@@ -91,9 +91,6 @@ let
     warning = yellow;
     info = teal;
 
-    progress_trough = surface1;
-    progress_highlight = primary;
-
     window_border = 2;
     window_gaps = 2;
     window_padding = 4;
@@ -103,14 +100,11 @@ let
   };
 in
 {
-  options.custom.theme = {
-    style = mkSetOption style;
-    palette = mkSetOption palette;
-
+  options.custom.theme = (mkSetOption theme) // {
     bat.enable = mkEnableOption "";
     firefox.enable = mkEnableOption "";
   };
-  config.custom.theme = {
-    inherit style palette;
+  config.custom = {
+    inherit theme;
   };
 }

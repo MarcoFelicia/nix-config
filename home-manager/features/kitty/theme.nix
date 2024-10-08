@@ -1,6 +1,5 @@
-style: palette:
-with style;
-with palette;
+theme:
+with theme;
 ''
   # The basic colors
   foreground              #${text}

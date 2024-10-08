@@ -1,6 +1,5 @@
-style: palette:
-with style;
-with palette;
+theme:
+with theme;
 ''
   require("full-border"):setup {
   	type = ui.Border.PLAIN,

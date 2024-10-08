@@ -4,15 +4,15 @@
   config,
   ...
 }:
+with config.custom.theme;
 {
   home.packages = [ pkgs.eww ];
 
-  xdg.configFile = with config.custom.theme; {
+  xdg.configFile =  {
     "eww/yucks".source = ./yucks;
     "eww/scss".source = ./scss;
     "eww/eww.yuck".text = builtins.readFile ./eww.yuck;
     "eww/eww.scss".text =
-      with style;
       ''
         $window-padding: ${toString window_padding}px;
         $window-rounding: ${toString window_rounding}px;
@@ -38,9 +38,7 @@
 
         $shadow: #${shadow};
 
-        ${builtins.concatStringsSep "\n" (
-          lib.attrsets.mapAttrsToList (name: color: "\$${name}: #${color};") palette
-        )}
+        $yellow: #${yellow};
       ''
       + builtins.readFile ./eww.scss;
   };

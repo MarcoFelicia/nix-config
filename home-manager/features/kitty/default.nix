@@ -1,10 +1,10 @@
-{ lib, config, ... }:
+{ lib, config, ... }:with config.custom;
 {
   programs = {
-    kitty = with config.custom.theme; {
+    kitty =  {
       enable = true;
       settings = import ./settings.nix config;
-      extraConfig = import ./theme.nix style palette + import ./config.nix;
+      extraConfig = import ./theme.nix theme + import ./config.nix;
     };
   };
 }

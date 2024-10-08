@@ -1,6 +1,5 @@
-style: palette:
-with style;
-with palette;
+theme:
+with theme;
 {
   manager = {
     hovered = {
@@ -32,7 +31,7 @@ with palette;
       fg = "#${border}";
     };
   };
-  status = with style; {
+  status = {
     separator_open = "";
     separator_close = "";
     separator_style = {
