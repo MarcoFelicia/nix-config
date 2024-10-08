@@ -26,7 +26,7 @@ with config.custom;
         monitor = "HDMI-A-1, ${toString width}x${toString height}@60, 0x0, 1";
         exec-once =
           [
-            "hyprpaper; hypridle"
+            "hyprpaper"
             "hyprctl dispatch movecursor ${toString (width / 2)} ${toString (height / 2)}"
           ]
           ++ (optional (elem pkgs.wl-gammarelay-rs config.home.packages) "wl-gammarelay-rs run")
