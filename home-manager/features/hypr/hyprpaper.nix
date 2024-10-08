@@ -2,10 +2,10 @@
   services.hyprpaper = {
     enable = true;
     settings = {
-      ipc = true;
+      ipc = "on";
       splash = false;
-      preload = [ "$HOME/Pictures/wallpaper.png" ];
-      wallpaper = [ "$HOME/Pictures/wallpaper.png" ];
+      preload = [ "~/Pictures/wallpaper.png" ];
+      wallpaper = [ "HDMI-A-1,~/Pictures/wallpaper.png" ];
     };
   };
 }
