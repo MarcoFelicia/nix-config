@@ -79,7 +79,4 @@ with lib;
     ];
 
   services.xserver.excludePackages = [ pkgs.xterm ];
-
-  programs.bash.vteIntegration = false;
-  programs.zsh.vteIntegration = false;
 }
