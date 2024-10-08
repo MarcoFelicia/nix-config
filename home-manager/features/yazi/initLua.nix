@@ -1,6 +1,4 @@
-theme:
-with theme;
-''
+theme: with theme; ''
   require("full-border"):setup {
   	type = ui.Border.PLAIN,
   }

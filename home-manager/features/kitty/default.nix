@@ -1,7 +1,8 @@
-{ lib, config, ... }:with config.custom;
+{ lib, config, ... }:
+with config.custom;
 {
   programs = {
-    kitty =  {
+    kitty = {
       enable = true;
       settings = import ./settings.nix config;
       extraConfig = import ./theme.nix theme + import ./config.nix;

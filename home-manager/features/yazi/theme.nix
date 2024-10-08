@@ -1,6 +1,4 @@
-theme:
-with theme;
-{
+theme: with theme; {
   manager = {
     hovered = {
       bg = "#${cursor_line}";

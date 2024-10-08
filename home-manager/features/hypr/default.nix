@@ -25,16 +25,11 @@ with config.custom;
       // {
         monitor = "HDMI-A-1, ${toString width}x${toString height}@60, 0x0, 1";
         exec-once =
-          [
-            "hyprpaper"
-            "hyprctl dispatch movecursor ${toString (width / 2)} ${toString (height / 2)}"
-          ]
+          [ "hyprctl dispatch movecursor ${toString (width / 2)} ${toString (height / 2)}" ]
           ++ (optional (elem pkgs.wl-gammarelay-rs config.home.packages) "wl-gammarelay-rs run")
-          ++ (optional (elem pkgs.eww config.home.packages) "eww daemon; update-volume; update-mute; change-light-mode; eww open mainbar");
+          ++ (optional (elem pkgs.eww config.home.packages) "eww daemon;  eww open mainbar; update-volume; update-mute; change-light-mode");
       };
     extraConfig = import ./config.nix;
   };
-
-  home.packages = with pkgs; [ hyprpaper ];
 }
-// (import ./hypridle.nix)
+// (import ./hypridle.nix) // (import ./hyprpaper.nix)

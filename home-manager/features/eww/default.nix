@@ -8,7 +8,7 @@ with config.custom.theme;
 {
   home.packages = [ pkgs.eww ];
 
-  xdg.configFile =  {
+  xdg.configFile = {
     "eww/yucks".source = ./yucks;
     "eww/scss".source = ./scss;
     "eww/eww.yuck".text = builtins.readFile ./eww.yuck;

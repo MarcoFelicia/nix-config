@@ -1,6 +1,4 @@
-theme:
-with theme;
-''
+theme: with theme; ''
   # The basic colors
   foreground              #${text}
   background              #${background}

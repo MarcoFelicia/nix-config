@@ -6,7 +6,6 @@
     "XDG_SESSION_DESKTOP,Hyprland"
 
     "MAX_WORKSPACE, 5"
-    "WALLPAPER_DIR,$HOME/Pictures/Wallpapers"
 
     "VOLUME_STEP,2"
     "BRIGHTNESS_STEP, 0.1"
