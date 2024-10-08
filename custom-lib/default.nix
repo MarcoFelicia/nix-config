@@ -29,8 +29,8 @@ rec {
   enableOptions =
     list:
     listToAttrs (
-      map (el: {
-        name = el;
+      map (opt: {
+        name = opt;
         value = {
           enable = mkDefault true;
         };
@@ -40,13 +40,13 @@ rec {
     options: list: intersectLists (mapAttrsToList (name: _: name) options) list;
   mergeConfigs =
     cfg: path: args:
-    mkMerge (map (el: mkIf (cfg.${subDirName el}.enable) ((import el) args)) (dirsIn path));
+    mkMerge (map (opt: mkIf (cfg.${subDirName opt}.enable) ((import opt) args)) (dirsIn path));
 
   hideDesktopEntries =
     entries:
     listToAttrs (
-      map (el: {
-        name = el;
+      map (opt: {
+        name = opt;
         value = {
           name = "";
           noDisplay = true;

@@ -1,3 +1,5 @@
+lib: config:
+with lib;
 ''
   unset zle_bracketed_paste
 
@@ -10,7 +12,6 @@
   ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(forward-char)
 
   function zvm_config() {
-    ZVM_VI_SURROUND_BINDKEY=s-prefix
     ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
   }
 
@@ -37,15 +38,16 @@
   typeset -a precmd_functions
   precmd_functions+=(delete_failed_command)
 
-  cls() {
+  erase-screen() {
     clear
     zle clear-screen
   }
-  zle -N cls
-
+  zle -N erase-screen
+''
++ (optionalString config.custom.features.bat.enable ''
   alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
   alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
   alias -g man='batman'
   compdef batman='man'
-''
+'')

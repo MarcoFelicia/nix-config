@@ -12,9 +12,10 @@ with lib;
       save = 1000;
       size = 1000;
       extended = false;
+      share = false;
     };
     shellAliases = import ./aliases.nix;
-    initExtra = import ./config.nix + import ./keybinds.nix;
+    initExtra = import ./config.nix lib config + import ./keybinds.nix lib;
 
     plugins = [
       {
