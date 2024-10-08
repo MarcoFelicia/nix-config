@@ -1,14 +1,15 @@
-lib: style: with style; {
+lib: theme: with theme; {
   windowrulev2 = [
-    "noborder, class:(firefox)"
-    "rounding ${toString (window_border + window_rounding + 1)}, class:(firefox)"
-    "noblur, class:(firefox)"
+    "noborder, fullscreenstate:1"
+    "noborder, floating:1"
+
     "opacity 1 override, class:(firefox)"
     "float, class:(firefox), title:(Library)"
     "size 1280 720, class:(firefox), title:(Library)"
     "size 1280 720, class:(firefox), title:(Save As)"
 
     "float, class:(kitty)"
+    "noborder off, class:(kitty)"
   ];
 
   layerrule =

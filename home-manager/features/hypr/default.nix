@@ -32,4 +32,5 @@ with config.custom;
     extraConfig = import ./config.nix;
   };
 }
-// (import ./hypridle.nix) // (import ./hyprpaper.nix)
+// (import ./hypridle.nix)
+// (import ./hyprpaper.nix)
