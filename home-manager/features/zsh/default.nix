@@ -14,8 +14,9 @@ with lib;
       extended = false;
       share = false;
     };
-    shellAliases = import ./aliases.nix;
+    completionInit = import ./completion.nix;
     initExtra = import ./config.nix lib config + import ./keybinds.nix lib;
+    shellAliases = import ./aliases.nix;
 
     plugins = [
       {
@@ -27,11 +28,6 @@ with lib;
         name = "zsh-syntax-highlighting";
         src = pkgs.zsh-syntax-highlighting;
         file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-      }
-      {
-        name = "zsh-vi-mode";
-        src = pkgs.zsh-vi-mode;
-        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
   };

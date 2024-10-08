@@ -1,0 +1,26 @@
+format = '''
+  $username$hostname$nix_shell$directory
+  $character
+'''
+
+[username]
+style_user = "bold"
+format = "[$user]($style)"
+show_always = true
+
+[hostname]
+ssh_only = false
+ssh_symbol = "󰖟 "
+format = "[@$ssh_symbol$hostname ]($style)$line_break"
+style = "bold"
+
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) "
+read_only = " "
+truncation_symbol = "…/"
+
+[nix_shell]
+format = '[\([ $name$state]($style)\)](blue) '
+impure_msg = " 󱈸"
+pure_msg = ""
+unknown_msg = ""

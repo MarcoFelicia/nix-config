@@ -14,6 +14,7 @@
     "gtk"
     "kitty"
     "rofi"
+    "starship"
     "vscodium"
     "yazi"
     "zsh"

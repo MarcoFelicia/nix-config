@@ -35,27 +35,26 @@ let
   );
 in
 ''
-  function zvm_after_init() {
-    bindkey -rp '''
-    bindkey -R ' '-'~' self-insert
+  KEYTIMEOUT=1
 
-    ${disable_keys}
-    
-    bindkey '^M' accept-line
-    bindkey '^?' backward-delete-char
-    bindkey '^[[3~' delete-char
-    bindkey '^[[A' up-line-or-history
-    bindkey '^[[B' down-line-or-history
+  bindkey -rp '''
+  bindkey -R ' '-'~' self-insert
 
-    zvm_bindkey vicmd '\e' zvm_enter_insert_mode
-    zvm_bindkey viins '\e' zvm_exit_insert_mode
-    zvm_bindkey visual '\e' zvm_exit_visual_mode
-    zvm_bindkey vicmd 'i'  zvm_enter_insert_mode
-    zvm_bindkey vicmd 'v' zvm_enter_visual_mode
+  ${disable_keys}
 
-    bindkey -M viins '^I' autosuggest-accept
-    bindkey '^L' erase-screen
-  }
+  bindkey '^M' accept-line
+  bindkey '^?' backward-delete-char
+  bindkey '^H' backward-delete-word
+  bindkey '^[[3~' delete-char
+  bindkey '^[[3;5~' delete-word
+  bindkey '^[[A' up-line-or-history
+  bindkey '^[[B' down-line-or-history
+  bindkey "^[[C" forward-char
+  bindkey "^[[D" backward-char
+  bindkey "^[[1;5C" forward-word
+  bindkey "^[[1;5D" backward-word
+  bindkey "^K" backward-kill-line
 
-  zvm_after_init_commands+=(zvm_after_init)
+  bindkey '^I' autosuggest-accept
+  bindkey '^L' erase-screen
 ''
