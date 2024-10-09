@@ -8,6 +8,7 @@ with lib;
 {
   programs.zsh = {
     enable = true;
+    dotDir = ".zsh";
     history = {
       save = 1000;
       size = 1000;

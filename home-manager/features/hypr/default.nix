@@ -10,6 +10,11 @@ with builtins;
 with lib;
 with config.custom;
 {
+  imports = [
+    ./hypridle.nix
+    ./hyprpaper.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
@@ -30,5 +35,3 @@ with config.custom;
     extraConfig = import ./config.nix;
   };
 }
-// (import ./hypridle.nix)
-// (import ./hyprpaper.nix)

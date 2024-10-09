@@ -13,7 +13,6 @@ rec {
       attrNames (filterAttrs (_: value: value == "directory") (readDir path))
     ));
   subDirName = path: last (splitString "/" (toString path));
-
   recursiveFilesIn =
     path:
     flatten (
@@ -37,8 +36,8 @@ rec {
   enableOptions =
     list:
     listToAttrs (
-      map (opt: {
-        name = opt;
+      map (option: {
+        name = option;
         value = {
           enable = mkDefault true;
         };
@@ -47,8 +46,18 @@ rec {
   filterNonExistingOption =
     options: list: intersectLists (mapAttrsToList (name: _: name) options) list;
   mergeConfigs =
-    cfg: path: args:
-    mkMerge (map (opt: mkIf (cfg.${subDirName opt}.enable) ((import opt) args)) (dirsIn path));
+    options: path: args:
+    mkMerge (
+      map (
+        option:
+        let
+          module = (import option) args;
+          imports = map (subModule: (import subModule) args) (module.imports or [ ]);
+          config = mkMerge ([ (filterAttrs (name: _: name != "imports") module) ] ++ imports);
+        in
+        mkIf (options.${subDirName option}.enable) config
+      ) (dirsIn path)
+    );
 
   hideDesktopEntries =
     entries:
