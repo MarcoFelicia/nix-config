@@ -10,15 +10,8 @@ with lib;
 {
   options.custom = {
     features = mkOptionsForFiles {
+      inherit args;
       path = ./features;
-      extra = {
-        firefox = {
-          customCss = mkEnableOption "";
-        };
-        bat = {
-          customTheme = mkEnableOption "";
-        };
-      };
     };
     scripts = mkOptionsForFiles { path = ./scripts; };
 

@@ -7,6 +7,10 @@
 }:
 with lib;
 {
+  options = {
+    customCss = mkEnableOption "";
+  };
+
   programs.firefox = {
     enable = true;
     profiles.default = {

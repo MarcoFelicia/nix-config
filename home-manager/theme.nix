@@ -100,7 +100,9 @@ let
   };
 in
 {
-  options.custom.theme = mkSetOption theme;
+  options.custom = {
+    theme = mkSetOption theme;
+  };
   config.custom = {
     inherit theme;
   };

@@ -27,11 +27,16 @@ rec {
   mkOptionsForFiles =
     {
       path,
-      extra ? { },
+      args ? "",
     }:
     mapAttrs (
       name: _:
-      ({ enable = mkEnableOption ""; } // (optionalAttrs (hasAttrByPath [ name ] extra) extra.${name}))
+      (
+        {
+          enable = mkEnableOption "";
+        }
+        // (if args != "" then (import (path + "/${name}") args).options or { } else { })
+      )
     ) (readDir path);
   enableOptions =
     list:
@@ -53,7 +58,9 @@ rec {
         let
           module = (import option) args;
           imports = map (subModule: (import subModule) args) (module.imports or [ ]);
-          config = mkMerge ([ (filterAttrs (name: _: name != "imports") module) ] ++ imports);
+          config = mkMerge (
+            [ (filterAttrs (name: _: name != "imports" && name != "options") module) ] ++ imports
+          );
         in
         mkIf (options.${subDirName option}.enable) config
       ) (dirsIn path)
