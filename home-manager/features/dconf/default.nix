@@ -11,6 +11,7 @@
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
+      show-battery-percentage = true;
     };
     "org/gnome/desktop/screensaver" = {
       picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/amber-l.jxl";

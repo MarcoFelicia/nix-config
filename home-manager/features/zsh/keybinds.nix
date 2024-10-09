@@ -35,6 +35,17 @@ let
   );
 in
 ''
+  erase-screen() {
+    clear
+    zle clear-screen
+  }
+  zle -N erase-screen
+  kill-whole-line() {
+    zle backward-kill-line
+    zle kill-line
+  }
+  zle -N kill-whole-line
+
   KEYTIMEOUT=1
 
   bindkey -rp '''
@@ -49,11 +60,13 @@ in
   bindkey '^[[3;5~' delete-word
   bindkey '^[[A' up-line-or-history
   bindkey '^[[B' down-line-or-history
-  bindkey "^[[C" forward-char
-  bindkey "^[[D" backward-char
-  bindkey "^[[1;5C" forward-word
-  bindkey "^[[1;5D" backward-word
-  bindkey "^K" backward-kill-line
+  bindkey '^[[C' forward-char
+  bindkey '^[[D' backward-char
+  bindkey '^[[1;5C' forward-word
+  bindkey '^[[1;5D' backward-word
+  bindkey '^[[H' beginning-of-line
+  bindkey '^[[F' end-of-line
+  bindkey '^K' kill-whole-line
 
   bindkey '^I' autosuggest-accept
   bindkey '^L' erase-screen

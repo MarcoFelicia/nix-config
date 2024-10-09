@@ -31,12 +31,6 @@ with config.custom.theme;
 
   typeset -a precmd_functions
   precmd_functions+=(delete_failed_command)
-
-  erase-screen() {
-    clear
-    zle clear-screen
-  }
-  zle -N erase-screen
 ''
 + (optionalString config.custom.features.bat.enable ''
   alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
