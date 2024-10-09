@@ -100,10 +100,7 @@ let
   };
 in
 {
-  options.custom.theme = (mkSetOption theme) // {
-    bat.enable = mkEnableOption "";
-    firefox.enable = mkEnableOption "";
-  };
+  options.custom.theme = mkSetOption theme;
   config.custom = {
     inherit theme;
   };

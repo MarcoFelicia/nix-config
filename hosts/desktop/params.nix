@@ -2,7 +2,12 @@
   username = "desktop";
   system = "x86_64-linux";
   stable = false;
-  allowUnfree = false;
+
+  monitor = {
+    width = 2560;
+    height = 1080;
+    hz = 60;
+  };
 
   features = [
     "hypr"

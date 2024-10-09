@@ -6,7 +6,12 @@
     nurl
   ];
 
-  custom.defaultShellCommand = "zsh";
-  custom.theme.bat.enable = true;
-  custom.theme.firefox.enable = true;
+  custom = {
+    features = {
+      firefox.customCss = true;
+      bat.customTheme = true;
+    };
+
+    defaultShellCommand = "zsh";
+  };
 }

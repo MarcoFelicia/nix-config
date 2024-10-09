@@ -20,7 +20,7 @@ with lib;
       settings = import ./settings.nix lib config;
     };
   };
-  home.file = mkIf config.custom.theme.firefox.enable {
+  home.file = mkIf config.custom.features.firefox.customCss {
     ".mozilla/firefox/default/chrome".source = ./css;
   };
 }

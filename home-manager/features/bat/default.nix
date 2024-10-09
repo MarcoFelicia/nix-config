@@ -11,7 +11,7 @@ with lib;
     extraPackages = with pkgs.bat-extras; [ batman ];
     config = {
       style = "plain";
-      theme = optionalString config.custom.theme.bat.enable "custom";
+      theme = optionalString config.custom.features.bat.customTheme "custom";
       tabs = "2";
       pager = "less -imR --jump-target=.5";
     };

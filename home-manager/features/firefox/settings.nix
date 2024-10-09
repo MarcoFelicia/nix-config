@@ -112,7 +112,7 @@ with lib;
   "browser.theme.toolbar-theme" = 0;
   "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
 }
-// (optionalAttrs config.custom.theme.firefox.enable {
+// (optionalAttrs config.custom.features.firefox.customCss {
   # userChrome
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 

@@ -25,7 +25,15 @@ rec {
       )
     );
 
-  mkOptionsForFiles = path: mapAttrs (_: _: { enable = mkEnableOption ""; }) (readDir path);
+  mkOptionsForFiles =
+    {
+      path,
+      extra ? { },
+    }:
+    mapAttrs (
+      name: _:
+      ({ enable = mkEnableOption ""; } // (optionalAttrs (hasAttrByPath [ name ] extra) extra.${name}))
+    ) (readDir path);
   enableOptions =
     list:
     listToAttrs (

@@ -47,38 +47,27 @@
         hostsDir = ./hosts;
 
         mkHost =
-          args:
-          with args;
+          host_params:
+          with host_params;
           (if stable then nixpkgs else nixpkgs-unstable).lib.nixosSystem {
             pkgs = getPkgs system stable;
             specialArgs = {
-              inherit
-                inputs
-                customLib
-                username
-                features
-                ;
-            };
+              inherit inputs customLib;
+            } // host_params;
             modules = [
               configPath
               nixosModules
             ];
           };
         mkHomeManager =
-          args:
-          with args;
+          host_params:
+          with host_params;
           (if stable then home-manager else home-manager-unstable).lib.homeManagerConfiguration {
             pkgs = getPkgs system stable;
             extraSpecialArgs = {
-              inherit
-                inputs
-                customLib
-                hostName
-                username
-                features
-                ;
+              inherit inputs customLib hostName;
               stable-pkgs = getPkgs system true;
-            };
+            } // host_params;
             modules = [
               configPath
               homeManagerModules
