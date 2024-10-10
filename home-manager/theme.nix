@@ -44,7 +44,7 @@ let
     background = base;
     secondary_panel = mantle;
     border = overlay0;
-    shadow = mantle;
+    shadow = crust;
 
     secondary_text = subtext1;
     disabled_text = subtext0;

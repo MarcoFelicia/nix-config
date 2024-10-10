@@ -46,15 +46,11 @@
 
 (defpoll hr
   :interval "1s"
-  "date +%I"
+  "date +%H"
 )
 (defpoll min
   :interval "1s"
   "date +%M"
-)
-(defpoll period
-  :interval "1s"
-  "date +%p"
 )
 
 (defpoll player_status
@@ -74,4 +70,15 @@
   :interval "1s"
   "get-wifi-signal"
 )
+
+(defvar logo_icon "󱄅")
+(defvar player_icon "")
+(defvar day_mode_icon "󰃠")
+(defvar night_mode_icon "󰤄")
+(defvar no_wifi_icon "󰤮")
 (defvar wifi_menu_icons '["󰤟", "󰤢", "󰤥", "󰤨"]')
+(defvar power_icon "")
+
+(defvar brightness_icon "󰌵")
+(defvar muted_icon "")
+(defvar unmuted_icon "")

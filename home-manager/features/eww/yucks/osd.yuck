@@ -4,7 +4,7 @@
   :stacking "overlay"
   :namespace "eww"
   (osd_progress
-    :icon "󰌵"
+    :icon {brightness_icon}
     :data {brightness}
     :bar "brightness-progress"
   )
@@ -16,7 +16,7 @@
   :stacking "overlay"
   :namespace "eww"
   (osd_progress
-    :icon {muted == 1 ? "" : ""}
+    :icon {muted == 1 ? muted_icon : unmuted_icon}
     :data {volume}
     :bar "volume-progress ${muted == 1 ? "mute" : ""}"
   )
@@ -24,7 +24,7 @@
 
 (defwidget osd_progress [icon data bar]
   (box
-    :class "osd-container"
+    :class "shadow-container"
     (box
       :class "osd"
       :spacing {osd_widget_space}

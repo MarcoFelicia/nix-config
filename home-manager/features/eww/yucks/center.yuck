@@ -31,9 +31,6 @@
     (label
       :text {min}
     )
-    (to_uppercase
-      :text {period}
-    )
   )
 )
 

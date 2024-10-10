@@ -1,4 +1,6 @@
-$box-shadow: 0 1px 2px 0 $shadow;
+$shadow-size: 3px;
+$shadow-y: 1px;
+$box-shadow: 0 $shadow-y $shadow-size 1px $shadow;
 
 * {
   all: unset;
@@ -15,8 +17,9 @@ $box-shadow: 0 1px 2px 0 $shadow;
   background-color: $bar-bg;
 }
 
-.osd-container {
-  padding: $window-padding;
+.shadow-container {
+  $pad: calc($shadow-y + $shadow-size);
+  padding: $pad;
 }
 
 .panel {

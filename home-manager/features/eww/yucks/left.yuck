@@ -42,7 +42,7 @@
     :space-evenly false
     (label
       :class "icon logo"
-      :text "󱄅"
+      :text {logo_icon}
     )
     (seperator)
     (workspaces)

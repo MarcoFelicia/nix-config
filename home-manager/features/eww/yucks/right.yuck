@@ -6,7 +6,7 @@
     (widget_button
       (label
         :class "icon"
-        :text ""
+        :text player_icon
         :yalign 0.6
       )
     )
@@ -19,7 +19,7 @@
     :onclick "toggle-night-mode"
     (label
       :class "icon ${night_mode == 0 ? "" : "small"}"
-      :text {night_mode == 0 ? "󰃠" : "󰤄"}
+      :text {night_mode == 0 ? day_mode_icon : night_mode_icon}
       :yalign 0.6
     )
   )
@@ -29,7 +29,7 @@
   (widget_button
     (label
       :class "icon"
-      :text {wifi_name == "" ? "󰤮" : wifi_menu_icons[wifi_signal]}
+      :text {wifi_name == "" ? no_wifi_icon : wifi_menu_icons[wifi_signal]}
       :yalign 0.6
     )
   )
@@ -49,7 +49,7 @@
     :onclick ""
     (label
       :class "icon bold small"
-      :text ""
+      :text {power_icon}
       :yalign 0.65
     )
   )
