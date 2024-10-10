@@ -27,10 +27,10 @@ with config.custom;
       // import ./rules.nix lib theme
       // {
         monitor = "HDMI-A-1, ${toString width}x${toString height}@${toString hz}, 0x0, 1";
-        exec-once =
-          [ "hyprctl dispatch movecursor ${toString (width / 2)} ${toString (height / 2)}" ]
-          ++ (optional (elem pkgs.wl-gammarelay-rs config.home.packages) "wl-gammarelay-rs run")
-          ++ (optional (elem pkgs.eww config.home.packages) "eww daemon;  eww open mainbar; update-volume; update-mute; change-light-mode");
+        exec-once = [
+          "eww open mainbar; update-volume; update-mute; change-light-mode"
+          "hyprctl dispatch movecursor ${toString (width / 2)} ${toString (height / 2)}"
+        ];
       };
     extraConfig = import ./config.nix;
   };

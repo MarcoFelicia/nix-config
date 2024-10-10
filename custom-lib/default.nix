@@ -27,7 +27,7 @@ rec {
   mkOptionsForFiles =
     {
       path,
-      args ? "",
+      args ? false,
     }:
     mapAttrs (
       name: _:
@@ -35,7 +35,7 @@ rec {
         {
           enable = mkEnableOption "";
         }
-        // (if args != "" then (import (path + "/${name}") args).options or { } else { })
+        // (if args != false then (import (path + "/${name}") args).options or { } else { })
       )
     ) (readDir path);
   enableOptions =

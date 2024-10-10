@@ -10,8 +10,9 @@ with customLib;
 with lib;
 {
   imports = [
-    ./theme.nix
     ./options.nix
+    ./theme.nix
+    ./systemd.nix
   ] ++ (filesIn ./common);
 
   home.packages = flatten (
