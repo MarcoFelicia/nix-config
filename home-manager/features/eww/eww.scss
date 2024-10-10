@@ -1,6 +1,6 @@
 @import './scss/general.scss';
 
-.logo{
+.logo {
   font-size: 16px;
 }
 
@@ -23,13 +23,20 @@
   }
 }
 
+.title {
+  label {
+    letter-spacing: 1px;
+    font-weight: bolder;
+  }
+}
+
 .clock {
   .colon {
     margin-top: -1px;
   }
 }
 
-.moon.icon{
+.moon.icon {
   font-size: 10px;
 }
 

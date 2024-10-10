@@ -25,6 +25,7 @@
 
 (defwidget window []
   (box
+    :class "title"
     :spacing {widget_group_space}
     :space-evenly false
     :visible {current_window != "" && current_window != "null"}

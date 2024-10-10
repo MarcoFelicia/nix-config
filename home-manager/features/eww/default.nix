@@ -19,7 +19,7 @@ with config.custom.theme;
 
         $bar-bg: rgba($color: #${status_bar}, $alpha: ${toString opacity});
         $panel-bg: rgba($color: #${panel}, $alpha: ${toString opacity});
-        $popup-bg: rgba($color: #${popup}, $alpha: ${toString opacity});
+        $osd-bg: rgba($color: #${osd}, $alpha: ${toString opacity});
         $color: #${text};
 
         $hover: rgba($color: #${hover}, $alpha: ${toString hover_opacity});

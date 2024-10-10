@@ -6,4 +6,4 @@ eww update muted="$MUTE"
 
 update-volume
 
-open-popup volume_popup
+open-osd volume_osd

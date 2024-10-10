@@ -1,4 +1,4 @@
-style: with style; {
+theme: with theme; {
   general = {
     border_size = window_border;
     gaps_in = window_gaps;

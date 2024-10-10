@@ -1,7 +1,7 @@
 (include "./yucks/left.yuck")
 (include "./yucks/center.yuck")
 (include "./yucks/right.yuck")
-(include "./yucks/popup.yuck")
+(include "./yucks/osd.yuck")
 (include "./yucks/utils.yuck")
 (include "./yucks/variables.yuck")
 

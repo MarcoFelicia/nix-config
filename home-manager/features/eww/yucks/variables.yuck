@@ -2,11 +2,11 @@
 (defvar widget_in_group_space 4)
 (defvar widget_size 18)
 
-(defvar current_popup "")
-(defvar popup_increment 0)
+(defvar current_osd "")
+(defvar osd_increment 0)
 (defvar timeout 2)
-(defvar popup_pos_y 32)
-(defvar popup_widget_space 8)
+(defvar osd_pos_y 32)
+(defvar osd_widget_space 8)
 
 (defvar volume 0)
 (defvar muted 0)

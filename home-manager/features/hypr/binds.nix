@@ -35,11 +35,9 @@ let
   );
 in
 {
-  "$scripts" = "./scripts";
-
   bind = [
     "$mod, Return, exec, [float; center] $terminal"
-    "$mod, Super_L, exec, apps"
+    "$mod, Super_L, exec, apps-launcher"
     "$mod, E, exec, [float; center; size 1280 720] $terminal yazi"
     "$mod+SHIFT, Q, killactive"
 

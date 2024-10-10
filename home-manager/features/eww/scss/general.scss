@@ -15,7 +15,7 @@ $box-shadow: 0 1px 2px 0 $shadow;
   background-color: $bar-bg;
 }
 
-.popup-container {
+.osd-container {
   padding: $window-padding;
 }
 
@@ -25,9 +25,9 @@ $box-shadow: 0 1px 2px 0 $shadow;
   box-shadow: $box-shadow;
 }
 
-.popup {
+.osd {
   padding: 8px 12px;
-  background-color: $popup-bg;
+  background-color: $osd-bg;
   border-radius: 4px;
   box-shadow: $box-shadow;
 

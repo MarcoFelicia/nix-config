@@ -63,7 +63,7 @@ let
 
     status_bar = secondary_panel;
     panel = background;
-    popup = status_bar;
+    osd = status_bar;
     app_launcher = secondary_panel;
 
     progress_trough = surface1;
