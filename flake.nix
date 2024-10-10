@@ -47,27 +47,27 @@
         hostsDir = ./hosts;
 
         mkHost =
-          host_params:
-          with host_params;
+          params:
+          with params;
           (if stable then nixpkgs else nixpkgs-unstable).lib.nixosSystem {
             pkgs = getPkgs system stable;
             specialArgs = {
               inherit inputs customLib;
-            } // host_params;
+            } // params;
             modules = [
               configPath
               nixosModules
             ];
           };
         mkHomeManager =
-          host_params:
-          with host_params;
+          params:
+          with params;
           (if stable then home-manager else home-manager-unstable).lib.homeManagerConfiguration {
             pkgs = getPkgs system stable;
             extraSpecialArgs = {
               inherit inputs customLib hostName;
               stable-pkgs = getPkgs system true;
-            } // host_params;
+            } // params;
             modules = [
               configPath
               homeManagerModules
@@ -75,13 +75,13 @@
           };
         genConfiguration =
           path: type:
-          assert builtins.match "home|configuration" type != null;
+          assert builtins.match "home-configuration|configuration" type != null;
           builtins.listToAttrs (
             map (
               hostPath:
               let
                 hostName = customLib.subDirName hostPath;
-                value = (if type == "home" then mkHomeManager else mkHost) (
+                value = (if type == "home-configuration" then mkHomeManager else mkHost) (
                   {
                     inherit hostName;
                     configPath = hostPath + "/${type}.nix";
@@ -98,7 +98,7 @@
       in
       {
         nixosConfigurations = genConfiguration hostsDir "configuration";
-        homeConfigurations = genConfiguration hostsDir "home";
+        homeConfigurations = genConfiguration hostsDir "home-configuration";
       }
     )
     // (flake-utils.lib.eachDefaultSystem (

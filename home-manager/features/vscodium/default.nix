@@ -14,7 +14,7 @@
       "explorer.confirmDelete" = false;
       "terminal.integrated.defaultProfile.linux" = config.custom.defaultShellCommand;
       "git.confirmSync" = false;
-      "workbench.startupEditor"="none";
+      "workbench.startupEditor" = "none";
     };
     extensions = with stable-pkgs; [ vscode-extensions.jnoortheen.nix-ide ];
   };

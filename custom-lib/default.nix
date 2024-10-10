@@ -4,38 +4,35 @@ with builtins;
 rec {
   getPkgs =
     system: stable:
-    import inputs."${if stable then "nixpkgs" else "nixpkgs-unstable"}" { inherit system; };
+    import inputs.${if stable then "nixpkgs" else "nixpkgs-unstable"} { inherit system; };
 
-  filesIn = path: (map (name: path + "/${name}") (attrNames (readDir path)));
-  dirsIn =
-    path:
-    (map (name: path + "/${name}") (
-      attrNames (filterAttrs (_: value: value == "directory") (readDir path))
-    ));
+  readDirFilter =
+    path: lambda: (map (name: path + "/${name}") (attrNames (filterAttrs lambda (readDir path))));
+  allIn = path: readDirFilter path (_: _: true);
+  dirsIn = path: readDirFilter path (_: value: value == "directory");
   subDirName = path: last (splitString "/" (toString path));
-  recursiveFilesIn =
+  recursiveallIn =
     path:
     flatten (
       attrValues (
         mapAttrs (
-          name: value:
-          if value == "directory" then recursiveFilesIn (path + "/${name}") else "${path}/${name}"
+          name: value: if value == "directory" then recursiveallIn (path + "/${name}") else "${path}/${name}"
         ) (readDir path)
       )
     );
 
   mkOptionsForFiles =
-    {
-      path,
-      args ? false,
-    }:
+    params:
+    with params;
     mapAttrs (
       name: _:
       (
         {
           enable = mkEnableOption "";
         }
-        // (if args != false then (import (path + "/${name}") args).options or { } else { })
+        // (
+          if hasAttrByPath [ "args" ] params then (import (path + "/${name}") args).options or { } else { }
+        )
       )
     ) (readDir path);
   enableOptions =

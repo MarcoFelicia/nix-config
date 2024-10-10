@@ -13,7 +13,7 @@ with lib;
     ./options.nix
     ./theme.nix
     ./systemd.nix
-  ] ++ (filesIn ./common);
+  ] ++ (allIn ./self);
 
   home.packages = flatten (
     map (
@@ -27,7 +27,7 @@ with lib;
         import path pkgs
       else
         warn "Unexpected ${path} in scripts/ directory"
-    ) (recursiveFilesIn ./scripts)
+    ) (recursiveallIn ./scripts)
   );
 
   custom = {
