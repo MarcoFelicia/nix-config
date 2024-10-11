@@ -9,11 +9,7 @@
 with customLib;
 with lib;
 {
-  imports = [
-    ./options.nix
-    ./theme.nix
-    ./systemd.nix
-  ] ++ (allIn ./self);
+  imports = bundleModules ./.;
 
   home.packages = flatten (
     map (
