@@ -3,7 +3,7 @@
   lib,
   config,
   inputs,
-  monitor ? {},
+  monitor ? { },
   ...
 }:
 with builtins;
