@@ -21,7 +21,10 @@ rec {
       )
     );
 
-  bundleModules = path: (readDirFilter path (name: value: name != "default.nix" && value != "directory")) ++ (allIn (path + "/self"));
+  bundleModules =
+    path:
+    (readDirFilter path (name: value: name != "default.nix" && value != "directory"))
+    ++ (allIn (path + "/self"));
 
   mkOptionsForFiles =
     params:

@@ -62,7 +62,7 @@ let
     disabled_opacity = 0.7;
 
     status_bar = secondary_panel;
-    menu = background;
+    menu = surface0;
     osd = status_bar;
     app_launcher = secondary_panel;
 
@@ -96,7 +96,7 @@ let
     window_padding = 4;
     window_rounding = 8;
 
-    opacity = 0.85;
+    opacity = 0.9;
   };
 in
 {

@@ -36,7 +36,7 @@
     :height "100%"
     :anchor "bottom center"
   )
-  :stacking "overlay"
+  :stacking "fg"
   :namespace "eww_fullscreen"
   (eventbox
     :onclick {close_fullscreen_overlay}

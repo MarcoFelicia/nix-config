@@ -5,9 +5,9 @@
     settings = {
       listener = [
         {
-          timeout = 170;
-          on-timeout = "idle-brightness";
-          on-resume = "resume-brightness";
+          timeout = 60;
+          on-timeout = "exec idle-brightness";
+          on-resume = "exec resume-brightness";
         }
         {
           timeout = 180;
