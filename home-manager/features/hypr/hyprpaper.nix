@@ -5,8 +5,8 @@
     settings = {
       ipc = "on";
       splash = false;
-      preload = [ "~/Pictures/wallpaper.png" ];
-      wallpaper = [ "HDMI-A-1,~/Pictures/wallpaper.png" ];
+      preload = [ "~/Pictures/the-water-barriers-xb-2560x1080.jpg" ];
+      wallpaper = [ "HDMI-A-1,~/Pictures/the-water-barriers-xb-2560x1080.jpg" ];
     };
   };
 }

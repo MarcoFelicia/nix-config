@@ -7,40 +7,32 @@
       (label
         :class "icon"
         :text player_icon
-        :yalign 0.6
       )
     )
     (seperator)
   )
 )
 
-(defwidget night_mode []
-  (widget_button
-    :onclick "toggle-night-mode"
-    (label
-      :class "icon ${night_mode == 0 ? "" : "small"}"
-      :text {night_mode == 0 ? day_mode_icon : night_mode_icon}
-      :yalign 0.6
-    )
-  )
-)
-
-(defwidget wifi []
-  (widget_button
-    (label
-      :class "icon"
-      :text {wifi_name == "" ? no_wifi_icon : wifi_menu_icons[wifi_signal]}
-      :yalign 0.6
-    )
-  )
-)
-
 (defwidget control []
-  (box
-    :spacing {widget_in_group_space}
-    :space-evenly false
-    (night_mode)
-    (wifi)
+  (widget_button
+    :class "multi"
+    (box
+      :style "padding: 0 4px"
+      :spacing {widget_in_group_space}
+      :space-evenly false
+      (label
+        :class "icon ${night_mode == 0 ? "" : "small"}"
+        :text {night_mode == 0 ? day_mode_icon : night_mode_icon}
+      )
+      (label
+        :class "icon"
+        :text {muted == 0 ? unmuted_icon : muted_icon}
+      )
+      (label
+        :class "icon"
+        :text {wifi_name == "" ? no_wifi_icon : wifi_menu_icons[wifi_signal]}
+      )
+    )
   )
 )
 
@@ -50,7 +42,7 @@
     (label
       :class "icon bold small"
       :text {power_icon}
-      :yalign 0.65
+      :yalign 0.6
     )
   )
 )

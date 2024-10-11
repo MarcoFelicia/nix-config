@@ -96,7 +96,7 @@ let
     window_padding = 4;
     window_rounding = 8;
 
-    opacity = 0.9;
+    opacity = 0.85;
   };
 in
 {

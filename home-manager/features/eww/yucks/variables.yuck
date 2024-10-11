@@ -1,6 +1,6 @@
 (defvar widget_group_space 12)
-(defvar widget_in_group_space 4)
-(defvar widget_size 18)
+(defvar widget_in_group_space 8)
+(defvar widget_size 20)
 
 (defvar current_osd "")
 (defvar osd_increment 0)

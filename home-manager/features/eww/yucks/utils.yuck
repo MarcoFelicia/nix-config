@@ -6,9 +6,9 @@
   )
 )
 
-(defwidget widget_button [?cursor ?onclick ?onhover ?onscroll]
+(defwidget widget_button [?class ?cursor ?onclick ?onhover ?onscroll]
   (eventbox
-    :class "widget-button"
+    :class "widget-button ${class}"
     :valign "center"
     :width {widget_size}
     :height {widget_size}

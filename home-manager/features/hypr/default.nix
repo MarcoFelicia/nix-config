@@ -32,6 +32,6 @@ with config.custom;
           "hyprctl dispatch movecursor ${toString (width / 2)} ${toString (height / 2)}"
         ];
       };
-    extraConfig = import ./config.nix;
+    extraConfig = import ./config.nix lib;
   };
 }

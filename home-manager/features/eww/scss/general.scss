@@ -78,10 +78,9 @@ $box-shadow: 0 $shadow-y $shadow-size 1px $shadow;
 .icon {
   font-family: 'Symbols Nerd Font Mono';
   font-weight: normal;
-  font-size: 12px;
 
   &.small {
-    font-size: 10px;
+    font-size: 12px;
   }
 
   &.bold {
@@ -95,4 +94,8 @@ $box-shadow: 0 $shadow-y $shadow-size 1px $shadow;
   &:hover {
     background-color: $hover;
   }
+}
+
+.fullscreen_overlay {
+  background-color: rgba($color: $shadow, $alpha: 0.2);
 }
