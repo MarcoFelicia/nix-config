@@ -45,3 +45,44 @@
     )
   )
 )
+
+(defwindow layout_osd
+  :monitor 0
+  :geometry (geometry)
+  :stacking "overlay"
+  :namespace "eww"
+  (mode_osd
+    :icon ""
+    :name "layout"
+  )
+)
+
+(defwindow power_osd
+  :monitor 0
+  :geometry (geometry)
+  :stacking "overlay"
+  :namespace "eww"
+  (mode_osd
+    :icon ""
+    :name "power menu"
+  )
+)
+
+(defwidget mode_osd [icon name]
+  (box
+    :class "shadow-container"
+    (box
+      :class "osd"
+      :spacing {osd_widget_space}
+      :space-evenly false
+      (label
+        :class "icon"
+        :text {icon}
+      )
+      (text_transform
+        :transform "capitalize"
+        :text "${name} mode"
+      )
+    )
+  )
+)

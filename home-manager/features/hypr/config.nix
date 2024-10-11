@@ -24,11 +24,12 @@ in
 concatStringsSep "\n" (
   flatten (
     mapAttrsToList (name: value: [
-      "bind = $mod, ${value.key}, submap, ${name}"
+      "bind = $mod, ${value.key}, exec, open-osd ${name}_osd && hyprctl dispatch submap ${name}"
       "submap = ${name}"
       (map (bind: "bind = ${bind}") value.bind)
-      "bind = , escape, submap, reset"
+      "bind = , escape, exec, close-osd && hyprctl dispatch submap reset"
       "submap = reset"
     ]) submaps
   )
+  ++ [ ]
 )

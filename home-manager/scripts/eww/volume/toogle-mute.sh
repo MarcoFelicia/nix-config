@@ -6,4 +6,4 @@ eww update muted="$MUTE"
 
 update-volume
 
-open-osd volume_osd
+open-timeout-osd volume_osd
