@@ -8,4 +8,4 @@ wpctl set-volume -l 1 @DEFAULT_SINK@ $VOLUME_STEP%$SIGN
 
 update-volume
 
-open-popup volume_popup
+open-osd volume_osd

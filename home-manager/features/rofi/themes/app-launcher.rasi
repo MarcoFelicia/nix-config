@@ -3,7 +3,7 @@
 window {
   width: 320px;
   padding: 12px;
-  background-color: @panel-bg;
+  background-color: @window-bg;
   border-radius: @rounding;
 }
 

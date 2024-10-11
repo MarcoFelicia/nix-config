@@ -4,7 +4,8 @@
     :halign "start"
     :spacing 4
     :space-evenly false
-    (to_uppercase
+    (text_transform
+      :transform "uppercase"
       :text {month}
     )
     (label
@@ -30,9 +31,6 @@
     )
     (label
       :text {min}
-    )
-    (to_uppercase
-      :text {period}
     )
   )
 )

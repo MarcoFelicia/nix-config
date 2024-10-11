@@ -1,12 +1,8 @@
-(defwidget to_uppercase [text]
+(defwidget text_transform [text transform ?class ?xalign]
   (label
-    :markup "<span text_transform=\"uppercase\">${text}</span>"
-  )
-)
-
-(defwidget to_capitalize [text]
-  (label
-    :markup "<span text_transform=\"capitalize\">${text}</span>"
+    :class {class}
+    :markup "<span text_transform=\"${transform}\">${text}</span>"
+    :xalign {xalign ?: 0.5}
   )
 )
 

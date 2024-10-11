@@ -44,7 +44,7 @@ let
     background = base;
     secondary_panel = mantle;
     border = overlay0;
-    shadow = mantle;
+    shadow = crust;
 
     secondary_text = subtext1;
     disabled_text = subtext0;
@@ -62,8 +62,8 @@ let
     disabled_opacity = 0.7;
 
     status_bar = secondary_panel;
-    panel = background;
-    popup = status_bar;
+    menu = background;
+    osd = status_bar;
     app_launcher = secondary_panel;
 
     progress_trough = surface1;

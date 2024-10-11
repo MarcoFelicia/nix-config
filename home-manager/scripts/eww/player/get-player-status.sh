@@ -1,3 +1,2 @@
-playerctl metadata title
-
+playerctl status
 trap "" EXIT

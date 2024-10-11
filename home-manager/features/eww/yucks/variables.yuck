@@ -2,16 +2,16 @@
 (defvar widget_in_group_space 4)
 (defvar widget_size 18)
 
-(defvar current_popup "")
-(defvar popup_increment 0)
+(defvar current_osd "")
+(defvar osd_increment 0)
 (defvar timeout 2)
-(defvar popup_pos_y 32)
-(defvar popup_widget_space 8)
+(defvar osd_pos_y 32)
+(defvar osd_widget_space 8)
 
 (defvar volume 0)
 (defvar muted 0)
 (deflisten brightness
-  "get-brightness"  
+  "get-brightness"
 )
 
 (defvar close_fullscreen_overlay "")
@@ -46,15 +46,11 @@
 
 (defpoll hr
   :interval "1s"
-  "date +%I"
+  "date +%H"
 )
 (defpoll min
   :interval "1s"
   "date +%M"
-)
-(defpoll period
-  :interval "1s"
-  "date +%p"
 )
 
 (defpoll player_status
@@ -74,4 +70,17 @@
   :interval "1s"
   "get-wifi-signal"
 )
+
+(defvar logo_icon "󱄅")
+(defvar player_icon "")
+(defvar day_mode_icon "󰃠")
+(defvar night_mode_icon "󰤄")
+(defvar no_wifi_icon "󰤮")
 (defvar wifi_menu_icons '["󰤟", "󰤢", "󰤥", "󰤨"]')
+(defvar power_icon "")
+
+(defvar brightness_icon "󰌵")
+(defvar muted_icon "")
+(defvar unmuted_icon "")
+
+(defvar power_menu_items '[{"text": "sleep", "command": "systemctl suspend"}, {"text": "reboot", "command": "reboot"}, {"text": "poweroff", "command": "poweroff"}]')

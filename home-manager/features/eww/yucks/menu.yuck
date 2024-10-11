@@ -1,0 +1,39 @@
+(defwindow power_menu
+  :monitor 0
+  :geometry (geometry)
+  :stacking "overlay"
+  :namespace "eww"
+  (box
+    :class "menu-container"
+    (box
+      :class "menu"
+      :spacing 2
+      :orientation "v"
+      :space-evenly false
+      (box
+        :class "title"
+        :spacing 12
+        :space-evenly false
+        (label
+          :class "icon"
+          :text {power_icon}
+        )
+        (text_transform
+          :transform "capitalize"
+          :text "power menu"
+        )
+      )
+      (for item in power_menu_items
+        (widget_button
+          :onclick "${item.command}; ${close_fullscreen_overlay}"
+          (text_transform
+            :transform "capitalize"
+            :class "menu-item"
+            :text {item.text}
+            :xalign 0
+          )
+        )
+      )
+    )
+  )
+)

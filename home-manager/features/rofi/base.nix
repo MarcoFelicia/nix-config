@@ -1,11 +1,11 @@
-style: lib:
-with style;
+theme: lib:
+with theme;
 let
   alpha = opacity: lib.trivial.toHexString (builtins.floor (opacity * 255));
 in
 ''
   * {
-    panel-bg: #${app_launcher}${alpha opacity};
+    window-bg: #${app_launcher}${alpha opacity};
     input-bg: #${input};
     selected: #${selected};
     normal-color: #${text};

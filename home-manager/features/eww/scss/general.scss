@@ -1,4 +1,6 @@
-$box-shadow: 0 1px 2px 0 $shadow;
+$shadow-size: 3px;
+$shadow-y: 1px;
+$box-shadow: 0 $shadow-y $shadow-size 1px $shadow;
 
 * {
   all: unset;
@@ -15,19 +17,45 @@ $box-shadow: 0 1px 2px 0 $shadow;
   background-color: $bar-bg;
 }
 
-.popup-container {
+.shadow-container {
+  $pad: calc($shadow-y + $shadow-size);
+  padding: $pad;
+}
+
+.menu-container {
   padding: $window-padding;
 }
 
-.panel {
-  background-color: $panel-bg;
+.menu {
+  padding: 8px;
+  background-color: $menu-bg;
   border-radius: $window-rounding;
   box-shadow: $box-shadow;
+
+  .title {
+    padding: 0 8px 4px;
+
+    label {
+      font-size: 16px;
+    }
+
+    .icon {
+      font-size: 14px;
+    }
+  }
+
+  .seperator-container{
+    padding: 4px 2px 2px;
+  }
+
+  .menu-item {
+    padding: 4px 8px;
+  }
 }
 
-.popup {
+.osd {
   padding: 8px 12px;
-  background-color: $popup-bg;
+  background-color: $osd-bg;
   border-radius: 4px;
   box-shadow: $box-shadow;
 

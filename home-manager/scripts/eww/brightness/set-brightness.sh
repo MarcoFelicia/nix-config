@@ -6,4 +6,4 @@ fi
 
 busctl --user call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d ${SIGN}${BRIGHTNESS_STEP}
 
-open-popup brightness_popup
+open-osd brightness_osd
