@@ -22,10 +22,35 @@ $box-shadow: 0 $shadow-y $shadow-size 1px $shadow;
   padding: $pad;
 }
 
-.panel {
-  background-color: $panel-bg;
+.menu-container {
+  padding: $window-padding;
+}
+
+.menu {
+  padding: 8px;
+  background-color: $menu-bg;
   border-radius: $window-rounding;
   box-shadow: $box-shadow;
+
+  .title {
+    padding: 0 8px 4px;
+
+    label {
+      font-size: 16px;
+    }
+
+    .icon {
+      font-size: 14px;
+    }
+  }
+
+  .seperator-container{
+    padding: 4px 2px 2px;
+  }
+
+  .menu-item {
+    padding: 4px 8px;
+  }
 }
 
 .osd {

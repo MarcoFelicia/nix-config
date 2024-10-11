@@ -30,7 +30,8 @@
     :space-evenly false
     :visible {current_window != "" && current_window != "null"}
     (seperator)
-    (to_capitalize
+    (text_transform
+      :transform "capitalize"
       :text {current_window}
     )
   )

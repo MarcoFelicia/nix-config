@@ -18,7 +18,7 @@ with config.custom.theme;
         $window-rounding: ${toString window_rounding}px;
 
         $bar-bg: rgba($color: #${status_bar}, $alpha: ${toString opacity});
-        $panel-bg: rgba($color: #${panel}, $alpha: ${toString opacity});
+        $menu-bg: rgba($color: #${menu}, $alpha: ${toString opacity});
         $osd-bg: rgba($color: #${osd}, $alpha: ${toString opacity});
         $color: #${text};
 

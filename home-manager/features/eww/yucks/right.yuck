@@ -46,7 +46,7 @@
 
 (defwidget power []
   (widget_button
-    :onclick ""
+    :onclick "open-menu power_menu"
     (label
       :class "icon bold small"
       :text {power_icon}

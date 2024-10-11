@@ -11,7 +11,7 @@
 (defvar volume 0)
 (defvar muted 0)
 (deflisten brightness
-  "get-brightness"  
+  "get-brightness"
 )
 
 (defvar close_fullscreen_overlay "")
@@ -82,3 +82,5 @@
 (defvar brightness_icon "󰌵")
 (defvar muted_icon "")
 (defvar unmuted_icon "")
+
+(defvar power_menu_items '[{"text": "sleep", "command": "systemctl suspend"}, {"text": "reboot", "command": "reboot"}, {"text": "poweroff", "command": "poweroff"}]')

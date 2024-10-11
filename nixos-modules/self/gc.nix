@@ -8,7 +8,7 @@
     };
     optimise = {
       automatic = true;
-      dates = [ "monthly" ];
+      dates = [ "weekly" ];
     };
   };
 }

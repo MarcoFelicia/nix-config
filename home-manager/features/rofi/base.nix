@@ -5,7 +5,7 @@ let
 in
 ''
   * {
-    panel-bg: #${app_launcher}${alpha opacity};
+    window-bg: #${app_launcher}${alpha opacity};
     input-bg: #${input};
     selected: #${selected};
     normal-color: #${text};

@@ -45,19 +45,6 @@
   border-radius: 2px;
 }
 
-.menu {
-  padding: 6px 8px;
-
-  .button:hover .item {
-    background-color: $hover;
-  }
-
-  .item {
-    padding: 4px 8px;
-    border-radius: 4px;
-  }
-}
-
 .volume-progress {
   label.icon {
     font-size: 14px;

@@ -62,7 +62,7 @@ let
     disabled_opacity = 0.7;
 
     status_bar = secondary_panel;
-    panel = background;
+    menu = background;
     osd = status_bar;
     app_launcher = secondary_panel;
 

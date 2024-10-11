@@ -1,8 +1,8 @@
-PANEL=$(eww get current_osd)
+OSD=$(eww get current_osd)
 eww update current_osd="$1"
 
-if [ "$PANEL" != "$1" ]; then
-  eww close $PANEL
+if [ "$OSD" != "$1" ]; then
+  eww close $OSD
 
   POS=$(eww get osd_pos_y)
   eww open $1 --pos 0x$POS --anchor "bottom center"

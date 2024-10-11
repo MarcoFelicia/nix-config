@@ -2,6 +2,7 @@
 (include "./yucks/center.yuck")
 (include "./yucks/right.yuck")
 (include "./yucks/osd.yuck")
+(include "./yucks/menu.yuck")
 (include "./yucks/utils.yuck")
 (include "./yucks/variables.yuck")
 
