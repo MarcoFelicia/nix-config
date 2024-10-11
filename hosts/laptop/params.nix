@@ -10,6 +10,7 @@
     "firefox"
     "gnome-terminal"
     "gpg"
+    "starship"
     "vscodium"
     "zsh"
 
