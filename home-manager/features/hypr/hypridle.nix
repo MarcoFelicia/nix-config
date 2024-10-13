@@ -5,12 +5,7 @@
     settings = {
       listener = [
         {
-          timeout = 60;
-          on-timeout = "exec idle-brightness";
-          on-resume = "exec resume-brightness";
-        }
-        {
-          timeout = 180;
+          timeout = 300;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
