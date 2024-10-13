@@ -18,18 +18,21 @@ let
         ", R, exec, reboot"
         ", P, exec, poweroff"
       ];
+      oneclick = true;
     };
   };
 in
 concatStringsSep "\n" (
   flatten (
-    mapAttrsToList (name: value: [
+    mapAttrsToList (name: value: let oneclick = value.oneclick or false;
+    in  [
       "bind = $mod, ${value.key}, exec, open-osd ${name}_osd && hyprctl dispatch submap ${name}"
       "submap = ${name}"
-      (map (bind: "bind = ${bind}") value.bind)
-      "bind = , escape, exec, close-osd && hyprctl dispatch submap reset"
+      (map (bind: "bind${if oneclick then "n" else ""} = ${bind}") value.bind)
+      "bind = , ${
+        if oneclick then "catchall" else "Escape"
+      }, exec, close-osd && hyprctl dispatch submap reset"
       "submap = reset"
     ]) submaps
   )
-  ++ [ ]
 )
