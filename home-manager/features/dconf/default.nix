@@ -12,6 +12,7 @@
       color-scheme = "prefer-dark";
       enable-hot-corners = false;
       show-battery-percentage = true;
+      text-scaling-factor = 1.2;
     };
     "org/gnome/desktop/screensaver" = {
       picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/amber-l.jxl";
