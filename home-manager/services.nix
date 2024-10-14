@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
 with builtins;
 with lib;
 let
@@ -21,7 +26,7 @@ in
         serviceName = pkg.pname or pkg.name;
       in
       {
-        name = serviceName;
+        name = "custom-" + serviceName;
         value = {
           Install = {
             WantedBy = [ "graphical-session.target" ];
@@ -39,6 +44,6 @@ in
           };
         };
       }
-    ) services
+    ) (filter (service: elem service.pkg config.home.packages) services)
   );
 }
