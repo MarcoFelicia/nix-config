@@ -13,4 +13,4 @@ INCREMENT=$((INCREMENT+1))
 eww update osd_increment="$INCREMENT"
 
 TIMEOUT=$(eww get timeout)
-sleep "${TIMEOUT}s" && close-osd $1 $INCREMENT
+sleep "${TIMEOUT}s" && close-timeout-osd $1 $INCREMENT

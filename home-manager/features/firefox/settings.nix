@@ -3,6 +3,8 @@ with lib;
 {
   # telematry
   "app.shield.optoutstudies.enabled" = false;
+  "app.normandy.enabled" = false;
+  "app.normandy.api_url" = "";
   "browser.discovery.enabled" = false;
   "browser.newtabpage.activity-stream.feeds.telemetry" = false;
   "browser.newtabpage.activity-stream.telemetry" = false;
@@ -62,9 +64,11 @@ with lib;
   # disable pocket
   "extensions.pocket.enabled" = false;
 
-  # tracking protection
+  # privacy
   "browser.contentblocking.category" = "strict";
   "network.http.referer.XOriginPolicy" = 2;
+  "network.IDN_show_punycode" = true;
+  "browser.safebrowsing.downloads.remote.enabled" = false;
 
   # disable autofill
   "signon.rememberSignons" = false;
@@ -82,7 +86,38 @@ with lib;
 
   # auto upgrade https
   "dom.security.https_only_mode" = true;
-  "security.OCSP.require" = true;
+
+  # security
+  "security.OCSP.enabled" = 0;
+  "security.remote_settings.crlite_filters.enabled" = true;
+  "security.pki.crlite_mode" = 2;
+  "security.ssl.treat_unsafe_negotiation_as_broken" = true;
+  "browser.xul.error_pages.expert_bad_cert" = true;
+  "security.tls.enable_0rtt_data" = false;
+  "browser.privatebrowsing.forceMediaMemoryCache" = true;
+  "security.insecure_connection_text.enabled" = true;
+  "security.insecure_connection_text.pbmode.enabled" = true;
+  "dom.security.https_first" = true;
+  "signon.formlessCapture.enabled" = false;
+  "network.auth.subresource-http-auth-allow" = 1;
+  "editor.truncate_user_pastes" = false;
+  "security.mixed_content.block_display_content" = true;
+  "pdfjs.enableScripting" = false;
+  "extensions.enabledScopes" = 5;
+  "permissions.default.desktop-notification" = 2;
+  "permissions.default.geo" = 2;
+  "webchannel.allowObject.urlWhitelist" = "";
+
+  # disable Captive Portal detection
+  "captivedetect.canonicalURL" = "";
+  "network.captive-portal-service.enabled" = false;
+
+  # autosave interval
+  "browser.sessionstore.interval" = 60000;
+
+  # trim https
+  "browser.urlbar.trimHttps" = true;
+  "browser.urlbar.untrimOnUserInteraction.featureGate" = true;
 
   # middlemouse paste
   "middlemouse.paste" = false;
@@ -94,6 +129,10 @@ with lib;
   "browser.urlbar.suggest.history" = false;
   "browser.urlbar.suggest.openpage" = false;
   "browser.urlbar.suggest.topsites" = false;
+  "browser.urlbar.quicksuggest.enabled" = false; 
+  "browser.urlbar.suggest.quicksuggest.sponsored" = false; 
+  "browser.urlbar.suggest.quicksuggest.nonsponsored" = false; 
+  "browser.urlbar.groupLabels.enabled" = false;
 
   # no picture-in-picture
   "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
@@ -104,7 +143,7 @@ with lib;
   # bookmark toolbar
   "browser.toolbars.bookmarks.visibility" = "never";
 
-  #disable tooltip
+  # disable tooltip
   "ui.tooltip.delay_ms" = -1;
 }
 // (optionalAttrs config.custom.features.firefox.customCss {

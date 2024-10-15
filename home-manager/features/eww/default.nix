@@ -17,7 +17,7 @@ with config.custom.theme;
         $window-padding: ${toString window_padding}px;
         $window-rounding: ${toString window_rounding}px;
 
-        $bar-bg: rgba($color: #${status_bar}, $alpha: ${toString (opacity - 0.1)});
+        $bar-bg: rgba($color: #${status_bar}, $alpha: ${toString opacity});
         $menu-bg: #${menu};
         $osd-bg: #${osd};
         $color: #${text};

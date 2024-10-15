@@ -1,4 +1,4 @@
-$shadow-size: 3px;
+$shadow-size: 2px;
 $shadow-y: 1px;
 $box-shadow: 0 $shadow-y $shadow-size 1px $shadow;
 
@@ -18,7 +18,7 @@ $box-shadow: 0 $shadow-y $shadow-size 1px $shadow;
 }
 
 .shadow-container {
-  $pad: calc($shadow-y + $shadow-size);
+  $pad: calc($shadow-y + $shadow-size + 1px);
   padding: $pad;
 }
 
