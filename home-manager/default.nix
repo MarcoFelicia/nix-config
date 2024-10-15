@@ -28,7 +28,7 @@ with lib;
           else if name == "requires.nix" then
             import subPath pkgs
           else
-            warn "Unexpected ${subPath} in scripts/ directory"
+            throw "Unexpected ${name} file in ${path} directory"
         ) (recursiveallIn path))
       else
         [ ]
