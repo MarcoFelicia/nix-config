@@ -1,1 +1,0 @@
-sudo nixos-rebuild switch --flake $NIX_CONFIG_HOME/#${1:-$NIX_HOSTNAME} --impure

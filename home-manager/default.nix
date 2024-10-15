@@ -37,7 +37,7 @@ with lib;
 
   custom = {
     features = enableOptions (filterNonExistingOption config.custom.features features);
-    scripts = enableOptions ((filterNonExistingOption config.custom.scripts features) ++ [ "flake" ]);
+    scripts = enableOptions ((filterNonExistingOption config.custom.scripts features) ++ [ "common" ]);
   };
 
   xdg = {
