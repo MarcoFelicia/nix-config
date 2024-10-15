@@ -17,13 +17,22 @@ with lib;
       let
         name = subDirName path;
       in
-      if hasSuffix ".sh" name then
-        pkgs.writeShellScriptBin (removeSuffix ".sh" name) (readFile path)
-      else if name == "requires.nix" then
-        import path pkgs
+      if config.custom.scripts.${name}.enable then
+        (map (
+          subPath:
+          let
+            name = subDirName subPath;
+          in
+          if hasSuffix ".sh" name then
+            pkgs.writeShellScriptBin (removeSuffix ".sh" name) (readFile subPath)
+          else if name == "requires.nix" then
+            import subPath pkgs
+          else
+            warn "Unexpected ${subPath} in scripts/ directory"
+        ) (recursiveallIn path))
       else
-        warn "Unexpected ${path} in scripts/ directory"
-    ) (recursiveallIn ./scripts)
+        [ ]
+    ) (dirsIn ./scripts)
   );
 
   custom = {
