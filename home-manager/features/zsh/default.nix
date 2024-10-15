@@ -14,6 +14,7 @@ with lib;
       size = 1000;
       extended = false;
       share = false;
+      ignorePatterns = ["get-hash *"]
     };
     completionInit = import ./completion.nix;
     initExtra = import ./config.nix lib config + import ./keybinds.nix lib;
