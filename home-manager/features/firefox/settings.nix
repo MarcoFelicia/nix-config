@@ -106,13 +106,13 @@ with lib;
 
   #disable tooltip
   "ui.tooltip.delay_ms" = -1;
-
+}
+// (optionalAttrs config.custom.features.firefox.customCss {
   #theme
   "browser.theme.content-theme" = 0;
   "browser.theme.toolbar-theme" = 0;
   "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
-}
-// (optionalAttrs config.custom.features.firefox.customCss {
+
   # userChrome
   "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
