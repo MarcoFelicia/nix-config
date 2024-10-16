@@ -12,7 +12,7 @@ with lib;
     history = {
       save = 1000;
       size = 1000;
-      ignorePatterns = ["get-hash*"];
+      ignorePatterns = ["get-hash *" "gpg *" "pass *"];
     };
     completionInit = import ./completion.nix;
     initExtra = import ./config.nix lib config + import ./keybinds.nix lib;

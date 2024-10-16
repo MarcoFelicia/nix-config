@@ -7,7 +7,7 @@ with config.custom.theme;
   ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
   ZSH_AUTOSUGGEST_MANUAL_REBIND=ture
-  ZSH_AUTOSUGGEST_STRATEGY=(completion)
+  ZSH_AUTOSUGGEST_STRATEGY=(completion match_prev_cmd)
   ZSH_AUTOSUGGEST_CLEAR_WIDGETS=(accept-line kill-line)
   ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=()
   ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS=(forward-char)

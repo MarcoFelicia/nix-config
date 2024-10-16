@@ -18,6 +18,7 @@
     "gpg"
     "gtk"
     "kitty"
+    "pass"
     "rofi"
     "starship"
     "vscodium"
