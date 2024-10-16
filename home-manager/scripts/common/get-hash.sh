@@ -1,1 +1,1 @@
-sha256sum <<< "$1" | awk '{print substr($0, 1, '$2')}' | wl-copy
+sha256sum <<< "${1:?'string required'}" | awk '{print substr($0, 1, '${2:?'length required'}')}' | wl-copy
