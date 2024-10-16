@@ -12,9 +12,7 @@ with lib;
     history = {
       save = 1000;
       size = 1000;
-      extended = false;
-      share = false;
-      ignorePatterns = ["get-hash *"];
+      ignorePatterns = ["get-hash*"];
     };
     completionInit = import ./completion.nix;
     initExtra = import ./config.nix lib config + import ./keybinds.nix lib;
