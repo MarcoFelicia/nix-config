@@ -1,0 +1,1 @@
+get-hash $@ && sleep $CLIP_TIME && wl-copy "" &

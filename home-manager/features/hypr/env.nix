@@ -14,6 +14,8 @@
     "DAY_TEMPERATURE, 6500"
     "NIGHT_TEMPERATURE, 5500"
     "DAY_NIGHT_UPDATE_INTERVAL, 3600"
+
+    "CLIP_TIME, 60"
   ];
   "$mod" = "SUPER";
   "$terminal" = "kitty";

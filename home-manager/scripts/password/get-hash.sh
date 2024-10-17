@@ -1,0 +1,1 @@
+sha256sum <<< "${1:?'string required'}" | awk '{print substr($0, 1, '${2:?'length required'}')}' | perl -pe 's/\n\z// if eof' | wl-copy

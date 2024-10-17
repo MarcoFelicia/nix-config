@@ -25,6 +25,8 @@
     "yazi"
     "zsh"
 
+    "password"
+
     "fonts"
   ];
 }
